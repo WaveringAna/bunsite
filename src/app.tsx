@@ -1,1 +1,0 @@
-import index from "./pages/index.tsx";
