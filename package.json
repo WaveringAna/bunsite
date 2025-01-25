@@ -1,0 +1,22 @@
+{
+  "name": "website",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch index.ts",
+    "start": "bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/react-dom": "^19.0.3",
+    "bun-plugin-tailwind": "^0.0.13",
+    "jsx-runtime": "^1.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
