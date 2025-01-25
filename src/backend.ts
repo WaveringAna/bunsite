@@ -9,7 +9,7 @@ serve({
                 "Content-Type": "image/x-icon",
             },
         }),
-        "/avatar.jpg": new Response(await Bun.file("./src/public/avatar.jpg").bytes(), {
+        "/background.jpg": new Response(await Bun.file("./src/public/background.jpg").bytes(), {
             headers: {
                 "Content-Type": "image/jpeg",
             },

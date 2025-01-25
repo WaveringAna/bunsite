@@ -3,7 +3,7 @@ import { SocialLinks } from "../components/SocialLinks";
 
 const BgSource = () => (
     <a
-        href="https://danbooru.donmai.us/posts/7229968"
+        href="/background.jpg"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 text-white/50 hover:text-white/70 
