@@ -4,11 +4,6 @@ import { serve } from "bun";
 serve({
     static: {
         "/": index,
-        "/output.css": new Response(await Bun.file("./src/public/output.css").bytes(), {
-            headers: {
-                "Content-Type": "text/css",
-            },
-        }),
         "/favicon.ico": new Response(await Bun.file("./src/public/avatar.jpg").bytes(), {
             headers: {
                 "Content-Type": "image/x-icon",
