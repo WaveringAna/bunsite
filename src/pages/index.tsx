@@ -18,7 +18,7 @@ export default function Home() {
     return (
         <div
             className="min-h-screen bg-black bg-[url('/background.jpg')] 
-        bg-cover before:absolute before:inset-0 before:bg-black/35 relative"
+        bg-cover relative"
         >
             <div className="relative z-10">
                 <Profile avatarSrc="/avatar.jpg" username="waveringana" />
