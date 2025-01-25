@@ -17,8 +17,8 @@ const BgSource = () => (
 export default function Home() {
     return (
         <div
-            className="min-h-screen bg-black bg-[url('https://cdn.donmai.us/original/d6/1e/__lynette_and_kirara_genshin_impact_drawn_by_lightria__d61e7262a1803d13bd8dd21bf1690105.jpg')] 
-        bg-cover before:absolute before:inset-0 before:bg-black/50 relative"
+            className="min-h-screen bg-black bg-[url('/background.jpg')] 
+        bg-cover before:absolute before:inset-0 before:bg-black/35 relative"
         >
             <div className="relative z-10">
                 <Profile avatarSrc="/avatar.jpg" username="waveringana" />
