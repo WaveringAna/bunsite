@@ -111,4 +111,6 @@ andddddd
 
 Bummer. The cool thing NextJS brought back to the react world is SSR. Bun is working to have that be easy to make which I was excited for, and yet I'm unable to extend their SSR to parse markdown on my server and instead force the client to do it which is what you're looking at right now. Sorry if you have shit hardware and it took a bit to render.
 
+One more thing I wish Bun's HTML rewriter could do is rewrite meta tags. I spent a good amount of time trying to get server-side SEO working with Bun's direct HTML serving, but it was a struggle. The ideal scenario would be if Bun's HTML rewriter could also rewrite meta tags based on some data, making it easy to inject SEO information directly into the HTML response. This would make it much easier to build SEO-friendly sites with Bun without having to resort to more complex solutions.
+
 I still wish to express my excitement again though. I haven't had this much fun writing pure React by hand since MERN was every single job posting on Linkedin. (Or NextJS 13, I miss you) The Bun team did great work shipping this. These are minor things really, but I wanted to document the issues I ran into while experimenting with it.

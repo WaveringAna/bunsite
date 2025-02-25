@@ -1,2 +1,8 @@
 *.jpg
 output.css
+bun.lock
+*.md
+Dockerfile
+*.json
+*.png
+*.yml
