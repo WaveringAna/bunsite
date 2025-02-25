@@ -3,6 +3,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark as dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface ModalProps {
   isOpen: boolean;
@@ -75,9 +77,11 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         className={`p-8 rounded-md shadow-lg relative max-w-3xl w-full 
                   bg-white/20 backdrop-blur-md text-white overflow-y-auto max-h-[80vh]
                   transition-all duration-300 ease-out
-                  ${animateIn 
-                    ? 'opacity-100 translate-y-0 scale-100 rotate-0' 
-                    : 'opacity-0 -translate-y-8 scale-95 rotate-1'}`}
+                  ${
+                    animateIn
+                      ? 'opacity-100 translate-y-0 scale-100 rotate-0'
+                      : 'opacity-0 -translate-y-8 scale-95 rotate-1'
+                  }`}
         ref={modalRef}
       >
         <button
@@ -85,8 +89,19 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
           className="absolute top-4 right-4 text-gray-300 hover:text-gray-100 p-2 
                     transition-all duration-200 hover:rotate-90"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
         {children}
@@ -95,9 +110,17 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   );
 };
 
-export const PostModal = ({ post, isOpen, onClose }: { post: any, isOpen: boolean, onClose: () => void }) => {
+export const PostModal = ({
+  post,
+  isOpen,
+  onClose,
+}: {
+  post: any;
+  isOpen: boolean;
+  onClose: () => void;
+}) => {
   if (!post) return null;
-  
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="flex flex-col">
@@ -109,7 +132,6 @@ export const PostModal = ({ post, isOpen, onClose }: { post: any, isOpen: boolea
         <ReactMarkdown
           remarkPlugins={[remarkGfm, remarkBreaks]}
           components={{
-            // Your existing Markdown components...
             h1: ({ node, ...props }) => (
               <h1 className="text-4xl font-bold mb-4" {...props} />
             ),
@@ -131,19 +153,31 @@ export const PostModal = ({ post, isOpen, onClose }: { post: any, isOpen: boolea
             ol: ({ node, ...props }) => (
               <ol className="list-decimal list-inside text-gray-300" {...props} />
             ),
-            li: ({ node, ...props }) => (
-              <li className="mb-1" {...props} />
-            ),
-            code: ({ node, ...props }) => (
-              <code className="bg-gray-700 rounded-md p-1 font-mono" {...props} />
-            ),
-            pre: ({ node, ...props }) => (
-              <pre className="bg-gray-800 rounded-md p-2 overflow-x-auto mb-4">
-                <code className="text-sm font-mono">{props.children}</code>
-              </pre>
-            ),
+            li: ({ node, ...props }) => <li className="mb-1" {...props} />,
+            code: ({ node, className, children, ...props }) => {
+              const match = /language-(\w+)/.exec(className || '');
+              return match ? (
+                <SyntaxHighlighter
+                  style={dark}
+                  language={match[1]}
+                >
+                  {String(children).replace(/\n$/, '')}
+                </SyntaxHighlighter>
+              ) : (
+                <code
+                  className="bg-gray-700 rounded-md p-1 font-mono"
+                  {...props}
+                >
+                  {children}
+                </code>
+              );
+            },
+            pre: ({ node, ...props }) => <>{props.children}</>,
             blockquote: ({ node, ...props }) => (
-              <blockquote className="border-l-4 border-gray-500 pl-4 italic text-gray-400 mb-4" {...props} />
+              <blockquote
+                className="border-l-4 border-gray-500 pl-4 italic text-gray-400 mb-4"
+                {...props}
+              />
             ),
             table: ({ node, ...props }) => (
               <table className="table-auto mb-4 w-full" {...props} />

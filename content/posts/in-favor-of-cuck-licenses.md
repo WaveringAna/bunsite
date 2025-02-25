@@ -1,7 +1,7 @@
 ---
 author: waveringana
 date: 2025-02-24
-title: In favor of "Cuck Licenses"
+title: In favor of Cuck Licenses
 excerpt: No one should be forced into poverty because they modified and shared code.
 ---
 
