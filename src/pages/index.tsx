@@ -1,6 +1,9 @@
+import { useState, useEffect } from "react";
 import { Profile } from "../components/Profile";
 import { SocialLinks } from "../components/SocialLinks";
-import { PostList } from "../components/PostList";
+import { WritingsPanel } from "../components/WritingsPanel";
+import { PostModal } from "../components/Modal";
+import { type PostCard } from "../components/PostList";
 
 const BgSource = () => (
 	<a
@@ -16,45 +19,72 @@ const BgSource = () => (
 );
 
 export default function Home() {
+	const [posts, setPosts] = useState<PostCard[]>([]);
+	const [loading, setLoading] = useState(true);
+	const [selectedPost, setSelectedPost] = useState<PostCard | null>(null);
+	const [isModalOpen, setIsModalOpen] = useState(false);
+  
+	const handlePostClick = (post: PostCard) => {
+	  setSelectedPost(post);
+	  setIsModalOpen(true);
+	  updateUrl(post.slug);
+	};
+  
+	const closeModal = () => {
+	  setIsModalOpen(false);
+	  clearUrl();
+	  // You might want to set selectedPost to null after a short delay to allow for animations
+	  setTimeout(() => setSelectedPost(null), 300);
+	};
+  
+	const updateUrl = (slug: string) => {
+	  history.pushState(null, '', `/${slug}`);
+	};
+  
+	const clearUrl = () => {
+	  history.pushState(null, '', '/');
+	};
+  
+	useEffect(() => {
+	  async function loadPosts() {
+		try {
+		  const response = await fetch('/api/posts');
+		  const data = await response.json();
+		  setPosts(data);
+		  
+		  // Check URL for slug on page load
+		  const slugFromUrl = window.location.pathname.slice(1);
+		  if (slugFromUrl) {
+			const post = data.find((p: PostCard) => p.slug === slugFromUrl);
+			if (post) {
+			  setSelectedPost(post);
+			  setIsModalOpen(true);
+			}
+		  }
+		} catch (error) {
+		  console.error('Failed to load posts:', error);
+		} finally {
+		  setLoading(false);
+		}
+	  }
+	  
+	  loadPosts();
+	}, []);
+  
 	return (
-		<div className="min-h-screen relative">
-			<Profile avatarSrc="/avatar.jpg" username="waveringana" />
-			<PostList posts={[
-				{
-					"author": "waveringana",
-					"date": "2025-02-25",
-					"title": "In favor of \"Cuck Licenses\"",
-					"excerpt": "No one should be forced into poverty because they modified and shared code.",
-					"slug": "in-favor-of-cuck-licenses",
-					"content": `
-No one should be forced into poverty because they modified and shared code. In the same way no one should be forced into poverty or face excessive prison time because they downloaded books off the internet.
-
-This is what a GPL license can do. It is what the explicit purpose of the GPL license is. Enforce state action on someone should they not share source code of GPL licensed code and any modifications done to it. What is 'free' about this?
-
-To call a license like the MIT license a "cuck" license because it allows others to use code freely shows a fundamental misunderstanding of what actual freedom means. True freedom includes letting others use what you create without imposing your ideology on them. The MIT and BSD licenses embody this principle - they give without demanding.
-
-The GPL, despite its "free software" branding, is fundamentally coercive. When someone violates the GPL (which can happen accidentally through complex dependency chains), they can face devastating lawsuits. These aren't theoretical as companies have paid millions in settlements over GPL violations. For small developers or startups, such lawsuits can mean bankruptcy (poverty).
-
-What's particularly insidious is how the essay frames this state-sanctioned coercion as morally superior. The author seems proud that corporations "worry" about the GPL "virus" taking over their code. This isn't promoting freedom but it's weaponizing the same legal system that copyright maximalists use, just for a different agenda.
-
-The Intel Management Engine example is particularly disingenuous. If MINIX had been GPL licensed, Intel wouldn't have made their IME open source as the author implies. Instead, they simply would have written their own proprietary OS from scratch, as Tanenbaum himself acknowledged they could have done. The result would be exactly the same for end users, a closed, proprietary management engine, just with Intel having spent more resources developing their own OS rather than using MINIX.
-
-The essay creates a false narrative that GPL licensing would have somehow forced Intel to make the IME transparent and secure. In reality, a corporation of Intel's size would simply avoid GPL-licensed code entirely for such a critical proprietary component.
-
-GPL often doesn't achieve its intended purpose with large companies who just work around it, while smaller developers and organizations bear the compliance burden.
-
-Unlike what the essay claims, permissive licenses don't undermine software freedom. They maximize it by allowing code to flow freely without legal threats. Developers can choose to contribute back improvements, but aren't forced to do so under threat of litigation.
-
-The real irony is that GPL advocates claim to fight against the restrictive copyright system, yet they rely entirely on that same system's enforcement mechanisms. Without copyright law, the GPL would have no teeth. Permissive licenses, meanwhile, approach the public domain ideal that might exist in a world without restrictive intellectual property laws.
-
-True software freedom means letting code be used without restrictions even if that means uses you disagree with. Anything else is just another form of control, dressed up in liberation rhetoric.
-
-A response to [this essay](https://lukesmith.xyz/articles/why-i-use-the-gpl-and-not-cuck-licenses/) by Luke Smith.
-`
-				}
-			]} />
-			<SocialLinks />
-			<BgSource />
-		</div>
+	  <div className="min-h-screen relative">
+		<Profile avatarSrc="/avatar.jpg" username="waveringana" />
+		<SocialLinks />
+		{loading ? (
+		  <div className="fixed bottom-16 left-1/2 -translate-x-1/2 text-white/70 bg-black/30 backdrop-blur-md px-5 py-3 rounded-full">
+			Loading writings...
+		  </div>
+		) : (
+		  <WritingsPanel posts={posts} onPostClick={handlePostClick} />
+		)}
+		<PostModal post={selectedPost} isOpen={isModalOpen} onClose={closeModal} />
+		<BgSource />
+	  </div>
 	);
-}
+  }
+  
