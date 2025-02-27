@@ -11,9 +11,15 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  style?: React.CSSProperties; // Add the style prop
 }
 
-export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+export const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  children,
+  style, // Destructure the style prop
+}) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
   const [animateIn, setAnimateIn] = useState(false);
@@ -69,13 +75,13 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center bg-black/60 z-50 
+      className={`fixed inset-0 flex items-center justify-center bg-black/60 z-50
                 transition-all duration-300 ease-out
                 ${animateIn ? 'opacity-100' : 'opacity-0'}`}
       style={{ perspective: '1000px' }}
     >
       <div
-        className={`p-8 rounded-md shadow-lg relative max-w-3xl w-full 
+        className={`p-8 rounded-md shadow-lg relative max-w-3xl w-full
                   bg-white/20 backdrop-blur-md text-white overflow-y-auto max-h-[80vh]
                   transition-all duration-300 ease-out
                   ${animateIn
@@ -83,10 +89,11 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
             : 'opacity-0 -translate-y-8 scale-95 rotate-1'
           }`}
         ref={modalRef}
+        style={style} // Apply the style prop
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-300 hover:text-gray-100 p-2 
+          className="absolute top-4 right-4 text-gray-300 hover:text-gray-100 p-2
                     transition-all duration-200 hover:rotate-90"
         >
           <svg
@@ -124,7 +131,7 @@ export const PostModal = ({
   return (
     <>
       {isOpen && (
-        <SEO 
+        <SEO
           title={post.title}
           description={post.excerpt}
           image={post.featuredImage}
@@ -136,7 +143,7 @@ export const PostModal = ({
           }}
         />
       )}
-      
+
       <Modal isOpen={isOpen} onClose={onClose}>
         <div className="flex flex-col">
           <h2 className="text-3xl font-bold mb-4">{post.title}</h2>
@@ -172,10 +179,7 @@ export const PostModal = ({
               code: ({ node, className, children, ...props }) => {
                 const match = /language-(\w+)/.exec(className || '');
                 return match ? (
-                  <SyntaxHighlighter
-                    style={dark}
-                    language={match[1]}
-                  >
+                  <SyntaxHighlighter style={dark} language={match[1]}>
                     {String(children).replace(/\n$/, '')}
                   </SyntaxHighlighter>
                 ) : (

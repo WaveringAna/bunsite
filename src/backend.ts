@@ -1,4 +1,5 @@
 import index from "./public/index.html";
+import drawingsJson from "../content/drawings.json";
 import { getPosts } from "./lib/posts";
 import { serve } from "bun";
 
@@ -19,26 +20,26 @@ serve({
             try {
                 const url = new URL(request.url);
                 const pathname = url.pathname.replace("/public", "");
-                
+
                 // Sanitize path to prevent directory traversal
                 const normalizedPath = pathname.split("/").filter(segment => {
                     // Remove empty segments and dangerous patterns
                     return segment !== "" && segment !== "." && segment !== "..";
                 }).join("/");
-                
+
                 // Construct the file path
                 const filePath = `./src/public/${normalizedPath}`;
                 const file = Bun.file(filePath);
-                
+
                 // Check if file exists
                 const exists = await file.exists();
                 if (!exists) {
                     return new Response("Not Found", { status: 404 });
                 }
-                
+
                 // Determine content type based on file extension
                 const contentType = getContentType(filePath);
-                
+
                 return new Response(await file.arrayBuffer(), {
                     headers: {
                         "Content-Type": contentType,
@@ -67,6 +68,7 @@ serve({
                 });
             }
         },
+        "/api/drawings": Response.json(drawingsJson)
     },
 });
 

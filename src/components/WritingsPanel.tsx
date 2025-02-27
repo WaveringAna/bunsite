@@ -29,10 +29,10 @@ export const WritingsPanel = ({ posts, onPostClick }: WritingsPanelProps) => {
       if (buttonRef.current && buttonRef.current.contains(event.target as Node)) {
         return;
       }
-      
+
       if (
-        isOpen && 
-        panelRef.current && 
+        isOpen &&
+        panelRef.current &&
         !panelRef.current.contains(event.target as Node) &&
         !(event.target as Element).closest('.modal-container')
       ) {
@@ -64,19 +64,19 @@ export const WritingsPanel = ({ posts, onPostClick }: WritingsPanelProps) => {
   return (
     <>
       {/* Trigger button */}
-      <button 
+      <button
         ref={buttonRef}
         onClick={togglePanel}
-        className={`fixed bottom-16 left-1/2 -translate-x-1/2 bg-black/30 hover:bg-black/50 
+        className={`fixed bottom-32 left-1/2 -translate-x-1/2 bg-black/30 hover:bg-black/50 
                   text-white/80 hover:text-orange-300 backdrop-blur-md px-5 py-3 rounded-full 
                   transition-all duration-300 shadow-lg hover:shadow-orange-300/20 
                   flex items-center gap-2 z-10 ${isOpen ? 'bg-black/50 text-orange-300' : ''}`}
       >
         <span className="text-lg font-medium">my writings</span>
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          className={`h-5 w-5 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`} 
-          viewBox="0 0 20 20" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className={`h-5 w-5 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+          viewBox="0 0 20 20"
           fill="currentColor"
         >
           <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
@@ -85,10 +85,10 @@ export const WritingsPanel = ({ posts, onPostClick }: WritingsPanelProps) => {
 
       {/* Panel - only render after mounted with guaranteed initial state */}
       {mounted && (
-        <div 
+        <div
           ref={panelRef}
           className="fixed inset-x-0 bottom-0 transform z-20"
-          style={{ 
+          style={{
             transition: 'transform 0.5s ease-in-out',
             transform: isOpen ? 'translateY(0)' : 'translateY(100%)'
           }}
@@ -97,7 +97,7 @@ export const WritingsPanel = ({ posts, onPostClick }: WritingsPanelProps) => {
           <div className="bg-black/40 backdrop-blur-md rounded-t-2xl shadow-lg max-h-[80vh] overflow-y-auto pb-24">
             <div className="flex justify-between items-center p-4 border-b border-white/10 sticky top-0 bg-black/40 backdrop-blur-md z-10">
               <h2 className="text-xl font-medium text-white/90">Writings</h2>
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
                 className="text-white/70 hover:text-white/90 p-2"
                 aria-label="Close panel"
@@ -107,7 +107,7 @@ export const WritingsPanel = ({ posts, onPostClick }: WritingsPanelProps) => {
                 </svg>
               </button>
             </div>
-            
+
             <div className="p-4">
               <PostList posts={posts} onPostClick={(post) => {
                 onPostClick(post);
