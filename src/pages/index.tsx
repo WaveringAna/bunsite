@@ -19,9 +19,21 @@ const BgSource = () => (
 	</a>
 );
 
-export default function Home() {
-	const [posts, setPosts] = useState<PostCard[]>([]);
-	const [drawings, setDrawings] = useState<Drawing[]>([]);
+export default function Home({ posts: initialPosts, drawings: initialDrawings, currentPost }: {
+    posts?: PostCard[];
+    drawings?: Drawing[];
+    currentPost?: string | null;
+}) {
+    // Check for SSR data in window if we're in the browser
+    const ssrData = typeof window !== 'undefined' ? (window as any).__INITIAL_DATA__ : null;
+    
+    // Initialize state with SSR data, props, or empty arrays
+    const [posts, setPosts] = useState<PostCard[]>(
+        initialPosts || (ssrData?.posts || [])
+    );
+    const [drawings, setDrawings] = useState<Drawing[]>(
+        initialDrawings || (ssrData?.drawings || [])
+    );
 	const [loading, setLoading] = useState(true);
 	const [selectedPost, setSelectedPost] = useState<PostCard | null>(null);
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,29 +62,38 @@ export default function Home() {
 	useEffect(() => {
 		async function loadData() {
 			try {
-				// Load posts
-				const postsResponse = await fetch('/api/posts');
-				const postsData = await postsResponse.json();
-				setPosts(postsData);
+				let postsData = initialPosts;
+				if (!postsData) {
+					const postsResponse = await fetch('/api/posts');
+					postsData = await postsResponse.json();
+					setPosts(postsData || []);
+				}
 
-				// Load drawings
-				const drawingsResponse = await fetch('/api/drawings');
-				const drawingsData = await drawingsResponse.json();
-
+				let drawingsData = initialDrawings || [];
+				if (!drawingsData.length) {
+					const drawingsResponse = await fetch('/api/drawings');
+					drawingsData = await drawingsResponse.json();
+				}
 				// Sort drawings by date
-				drawingsData.sort((a: Drawing, b: Drawing) => {
-					return new Date(b.date).getTime() - new Date(a.date).getTime();
-				});
-
+				drawingsData.sort((a: Drawing, b: Drawing) => new Date(b.date).getTime() - new Date(a.date).getTime());
 				setDrawings(drawingsData);
 
-				// Check URL for slug on page load
-				const slugFromUrl = window.location.pathname.slice(1);
-				if (slugFromUrl) {
-					const post = postsData.find((p: PostCard) => p.slug === slugFromUrl);
+				// Check for post to display - either from currentPost prop or URL
+				if (currentPost && postsData) {
+					const post = postsData.find((p: PostCard) => p.slug === currentPost);
 					if (post) {
 						setSelectedPost(post);
 						setIsModalOpen(true);
+					}
+				} else {
+					// If no currentPost prop, check URL
+					const slugFromUrl = window.location.pathname.slice(1);
+					if (slugFromUrl && postsData) {
+						const post = postsData.find((p: PostCard) => p.slug === slugFromUrl);
+						if (post) {
+							setSelectedPost(post);
+							setIsModalOpen(true);
+						}
 					}
 				}
 			} catch (error) {
@@ -83,10 +104,10 @@ export default function Home() {
 		}
 
 		loadData();
-	}, []);
+	}, [initialPosts, initialDrawings, currentPost]);
 
 	return (
-		<div className="min-h-screen relative">
+		<div className="min-h-screen relative bg-[url('/background.jpg')] bg-cover bg-center">
 			<Profile avatarSrc="/avatar.jpg" username="waveringana" />
 			<SocialLinks />
 			{loading ? (

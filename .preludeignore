@@ -6,3 +6,5 @@ Dockerfile
 *.json
 *.png
 *.yml
+*.png
+*.jpeg
