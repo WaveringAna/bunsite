@@ -39371,14 +39371,14 @@ var WritingsPanel = ({ posts, onPostClick }) => {
       }, undefined, true, undefined, this),
       mounted && /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("div", {
         ref: panelRef,
-        className: "fixed inset-x-0 bottom-0 transform z-20",
+        className: "fixed inset-x-0 bottom-0 transform z-20 overflow-hidden w-full",
         style: {
           transition: "transform 0.5s ease-in-out",
           transform: isOpen ? "translateY(0)" : "translateY(100%)"
         },
         "aria-expanded": isOpen,
         children: /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("div", {
-          className: "bg-black/40 backdrop-blur-md rounded-t-2xl shadow-lg max-h-[80vh] overflow-y-auto pb-24",
+          className: "bg-black/40 backdrop-blur-md rounded-t-2xl shadow-lg max-h-[80vh] overflow-y-auto overflow-x-hidden pb-24 w-full",
           children: [
             /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("div", {
               className: "flex justify-between items-center p-4 border-b border-white/10 sticky top-0 bg-black/40 backdrop-blur-md z-10",
@@ -39408,7 +39408,7 @@ var WritingsPanel = ({ posts, onPostClick }) => {
               ]
             }, undefined, true, undefined, this),
             /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("div", {
-              className: "p-4",
+              className: "p-4 w-full",
               children: /* @__PURE__ */ jsx_dev_runtime5.jsxDEV(PostList, {
                 posts,
                 onPostClick: (post) => {
@@ -52443,10 +52443,10 @@ function Home({ posts: initialPosts, drawings: initialDrawings, currentPost }) {
     loadData();
   }, [initialPosts, initialDrawings, currentPost]);
   return /* @__PURE__ */ jsx_dev_runtime9.jsxDEV("div", {
-    className: "min-h-screen relative bg-[url('/background.jpg')] bg-cover bg-center",
+    className: "min-h-screen relative bg-cover bg-center",
     children: [
       /* @__PURE__ */ jsx_dev_runtime9.jsxDEV(Profile, {
-        avatarSrc: "/avatar.jpg",
+        avatarSrc: "/public/avatar.jpg",
         username: "waveringana"
       }, undefined, false, undefined, this),
       /* @__PURE__ */ jsx_dev_runtime9.jsxDEV(SocialLinks, {}, undefined, false, undefined, this),

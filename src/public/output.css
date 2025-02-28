@@ -557,9 +557,6 @@
   .bg-white\/20 {
     background-color: color-mix(in oklab, var(--color-white) 20%, transparent);
   }
-  .bg-\[url\(\'\/background\.jpg\'\)\] {
-    background-image: url('/background.jpg');
-  }
   .bg-cover {
     background-size: cover;
   }

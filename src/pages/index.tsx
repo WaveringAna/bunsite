@@ -103,7 +103,7 @@ export default function Home({ posts: initialPosts, drawings: initialDrawings, c
 	}, [initialPosts, initialDrawings, currentPost]);
 
 	return (
-		<div className="min-h-screen relative bg-[url('/background.jpg')] bg-cover bg-center">
+		<div className="min-h-screen relative bg-cover bg-center">
 			<Profile avatarSrc="/public/avatar.jpg" username="waveringana" />
 			<SocialLinks />
 			{loading ? (
