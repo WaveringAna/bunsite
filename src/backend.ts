@@ -1,7 +1,7 @@
 import index from "./public/index.html";
 import drawingsJson from "../content/drawings.json";
 import { getPosts } from "./lib/posts";
-import { render, renderPost } from "./lib/ssr";
+import { renderPost } from "./lib/ssr";
 import { serve } from "bun";
 import { build } from "bun";
 import { mkdir } from "node:fs/promises";
@@ -11,7 +11,6 @@ try {
 } catch (error) {
     console.error("Error creating build directory:", error);
 }
-
 
 serve({
     port: 3000,
