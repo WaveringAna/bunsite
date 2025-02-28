@@ -2,12 +2,22 @@ import index from "./public/index.html";
 import drawingsJson from "../content/drawings.json";
 import { getPosts } from "./lib/posts";
 import { renderPost } from "./lib/ssr";
-import { serve } from "bun";
-import { build } from "bun";
+import { serve, build } from "bun";
 import { mkdir } from "node:fs/promises";
 
+console.log("Building frontend for ssr...");
 try {
     await mkdir("./build", { recursive: true });
+    const result = await build({
+        entrypoints: ["./src/frontend.tsx"],
+        outdir: "./build",
+        target: "browser",
+        minify: process.env.NODE_ENV === "production",
+    });
+
+    if (!result.success) {
+        throw "Build failed:" + result.logs;
+    }
 } catch (error) {
     console.error("Error creating build directory:", error);
 }
@@ -80,32 +90,13 @@ serve({
             }
         },
         "/frontend.js": async () => {
-            try {
-                // Build the frontend bundle
-                const result = await build({
-                    entrypoints: ["./src/frontend.tsx"],
-                    outdir: "./build",
-                    target: "browser",
-                    minify: process.env.NODE_ENV === "production",
-                });
-
-                // Check for errors
-                if (!result.success) {
-                    console.error("Build failed:", result.logs);
-                    return new Response("Build failed", { status: 500 });
-                }
-
-                // Serve the built file
-                const file = Bun.file("./build/frontend.js");
-                return new Response(await file.arrayBuffer(), {
-                    headers: {
-                        "Content-Type": "application/javascript",
-                    },
-                });
-            } catch (error) {
-                console.error("Error building frontend:", error);
-                return new Response("Build error", { status: 500 });
-            }
+            // Serve the built file
+            const file = Bun.file("./build/frontend.js");
+            return new Response(await file.arrayBuffer(), {
+                headers: {
+                    "Content-Type": "application/javascript",
+                },
+            });
         },
 
     },
@@ -114,22 +105,12 @@ serve({
         const url = new URL(request.url);
         const path = url.pathname;
 
-        // Skip processing for paths we know are handled by routes
-        if (path === "/" || path === "/favicon.ico" || path === "/background.jpg" ||
-            path.startsWith("/api/") || path.startsWith("/public/")) {
-            // Let the routes handler deal with these
-            return new Response("Not Found", { status: 404 });
-        }
-
-        // Extract slug from path (remove leading slash)
         const slug = path.substring(1);
 
-        // Only process non-empty slugs
         if (slug) {
             return handleSlugRoute(slug);
         }
 
-        // Default response for any unmatched route
         return new Response("Not Found", { status: 404 });
     }
 });

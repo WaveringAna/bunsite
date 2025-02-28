@@ -47,7 +47,6 @@ export default function Home({ posts: initialPosts, drawings: initialDrawings, c
 	const closeModal = () => {
 		setIsModalOpen(false);
 		clearUrl();
-		// You might want to set selectedPost to null after a short delay to allow for animations
 		setTimeout(() => setSelectedPost(null), 300);
 	};
 
@@ -74,11 +73,9 @@ export default function Home({ posts: initialPosts, drawings: initialDrawings, c
 					const drawingsResponse = await fetch('/api/drawings');
 					drawingsData = await drawingsResponse.json();
 				}
-				// Sort drawings by date
 				drawingsData.sort((a: Drawing, b: Drawing) => new Date(b.date).getTime() - new Date(a.date).getTime());
 				setDrawings(drawingsData);
 
-				// Check for post to display - either from currentPost prop or URL
 				if (currentPost && postsData) {
 					const post = postsData.find((p: PostCard) => p.slug === currentPost);
 					if (post) {
@@ -86,7 +83,6 @@ export default function Home({ posts: initialPosts, drawings: initialDrawings, c
 						setIsModalOpen(true);
 					}
 				} else {
-					// If no currentPost prop, check URL
 					const slugFromUrl = window.location.pathname.slice(1);
 					if (slugFromUrl && postsData) {
 						const post = postsData.find((p: PostCard) => p.slug === slugFromUrl);
@@ -108,7 +104,7 @@ export default function Home({ posts: initialPosts, drawings: initialDrawings, c
 
 	return (
 		<div className="min-h-screen relative bg-[url('/background.jpg')] bg-cover bg-center">
-			<Profile avatarSrc="/avatar.jpg" username="waveringana" />
+			<Profile avatarSrc="/public/avatar.jpg" username="waveringana" />
 			<SocialLinks />
 			{loading ? (
 				<div className="fixed bottom-16 left-1/2 -translate-x-1/2 text-white/70 bg-black/30 backdrop-blur-md px-5 py-3 rounded-full">

@@ -2,22 +2,19 @@
 
 import { getPosts } from "./posts.ts";
 
-// Get the index.html template
 async function getIndexHtml() {
     const file = Bun.file("./src/public/ssr.html");
     return await file.text();
 }
 
-export async function render(slug?: string) {
+async function render(slug?: string) {
     const posts = await getPosts();
     
-    // Find the current post if a slug is provided
     let metaTags = '';
     
     if (slug) {
         const currentPost = posts.find(post => post.slug === slug);
         
-        // Generate meta tags if we found a matching post
         if (currentPost) {
             metaTags = `
                 <!-- Primary Meta Tags -->
@@ -42,7 +39,6 @@ export async function render(slug?: string) {
         }
     }
     
-    // Default meta tags for homepage if no post-specific tags
     if (!metaTags) {
         metaTags = `
             <!-- Primary Meta Tags -->
@@ -64,16 +60,13 @@ export async function render(slug?: string) {
         `;
     }
 
-    // Get the HTML template
     const indexHtml = await getIndexHtml();
     
-    // Just replace the title with our meta tags
     const fullHtml = indexHtml.replace(
         '<title>nekomimi.pet</title>', 
         metaTags
     );
 
-    // Return the HTML with meta tags but no server rendering
     return new Response(fullHtml, {
         headers: {
             "Content-Type": "text/html",
@@ -85,13 +78,12 @@ export async function renderPost(slug: string) {
     return await render(slug);
 }
 
-// For testing purposes
+/*
 export async function printRender() {
     const response = await render();
     const text = await response.text();
     console.log(text);
     return text;
 }
+*/
 
-// Remove auto-execution in the module
-// await printRender();

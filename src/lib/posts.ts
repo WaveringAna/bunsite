@@ -23,7 +23,6 @@ export async function getPosts(): Promise<PostCard[]> {
         const filePath = path.join(postsDirectory, filename);
         const fileContent = await readFile(filePath, 'utf8');
         
-        // Simple frontmatter parsing (you could use gray-matter package for more robust parsing)
         const frontmatterMatch = fileContent.match(/^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/);
         
         if (!frontmatterMatch) {
@@ -38,7 +37,6 @@ export async function getPosts(): Promise<PostCard[]> {
           if (key && value) frontmatter[key] = value;
         });
         
-        // Extract slug from filename (remove .md extension)
         const slug = filename.replace(/\.md$/, '');
         
         return {
@@ -52,6 +50,5 @@ export async function getPosts(): Promise<PostCard[]> {
       })
   );
   
-  // Sort by date (newest first)
   return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }

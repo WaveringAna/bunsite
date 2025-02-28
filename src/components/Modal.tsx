@@ -11,14 +11,14 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
-  style?: React.CSSProperties; // Add the style prop
+  style?: React.CSSProperties;
 }
 
 export const Modal: React.FC<ModalProps> = ({
   isOpen,
   onClose,
   children,
-  style, // Destructure the style prop
+  style,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
@@ -37,7 +37,6 @@ export const Modal: React.FC<ModalProps> = ({
     }
   }, [isOpen, mounted]);
 
-  // Handle animation
   useEffect(() => {
     if (mounted) {
       // Ensure DOM has updated before animating
@@ -49,7 +48,6 @@ export const Modal: React.FC<ModalProps> = ({
     return undefined;
   }, [isOpen, mounted]);
 
-  // Handle click outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -89,7 +87,7 @@ export const Modal: React.FC<ModalProps> = ({
             : 'opacity-0 -translate-y-8 scale-95 rotate-1'
           }`}
         ref={modalRef}
-        style={style} // Apply the style prop
+        style={style}
       >
         <button
           onClick={onClose}

@@ -39156,22 +39156,36 @@ var Helmet = class extends import_react.Component {
 // src/pages/index.tsx
 var import_react11 = __toESM(require_react(), 1);
 
-// src/components/Profile.tsx
+// src/components/Avatar.tsx
 var jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
-var Profile = ({ avatarSrc, username }) => /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
+var Avatar = ({ src, alt }) => /* @__PURE__ */ jsx_dev_runtime.jsxDEV("img", {
+  src,
+  alt,
+  className: "h-20 w-20 rounded-full"
+}, undefined, false, undefined, this);
+
+// src/components/Profile.tsx
+var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
+var Profile = ({ avatarSrc, username }) => /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
   className: "fixed left-8 top-8",
-  children: /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
+  children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
     className: "flex items-center gap-4",
-    children: /* @__PURE__ */ jsx_dev_runtime.jsxDEV("h1", {
-      className: "text-2xl text-white/80 hover:text-orange-300 transition-colors duration-200",
-      children: username
-    }, undefined, false, undefined, this)
-  }, undefined, false, undefined, this)
+    children: [
+      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV(Avatar, {
+        src: avatarSrc,
+        alt: `${username}'s avatar`
+      }, undefined, false, undefined, this),
+      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("h1", {
+        className: "text-2xl text-white/80 hover:text-orange-300 transition-colors duration-200",
+        children: username
+      }, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this)
 }, undefined, false, undefined, this);
 
 // src/components/SocialLinks.tsx
-var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
-var SocialLink = ({ href, label, children }) => /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("a", {
+var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
+var SocialLink = ({ href, label, children }) => /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("a", {
   href,
   target: "_blank",
   rel: "noopener noreferrer",
@@ -39179,66 +39193,66 @@ var SocialLink = ({ href, label, children }) => /* @__PURE__ */ jsx_dev_runtime2
   "aria-label": label,
   children
 }, undefined, false, undefined, this);
-var SocialLinks = () => /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+var SocialLinks = () => /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
   className: "fixed left-8 top-1/2 -translate-y-1/2 flex flex-col gap-6",
   children: [
-    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV(SocialLink, {
+    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(SocialLink, {
       href: "https://l.nekomimi.pet/github?source=nekomimi.pet",
       label: "GitHub",
-      children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+      children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
         className: "flex items-center gap-3 text-lg",
         children: [
-          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("svg", {
+          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("svg", {
             className: "w-6 h-6",
             fill: "currentColor",
             viewBox: "0 0 24 24",
-            children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("path", {
+            children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("path", {
               fillRule: "evenodd",
               d: "M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z",
               clipRule: "evenodd"
             }, undefined, false, undefined, this)
           }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
             children: "GitHub"
           }, undefined, false, undefined, this)
         ]
       }, undefined, true, undefined, this)
     }, undefined, false, undefined, this),
-    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV(SocialLink, {
+    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(SocialLink, {
       href: "https://l.nekomimi.pet/twitter?source=nekomimi.pet",
       label: "Twitter",
-      children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+      children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
         className: "flex items-center gap-3 text-lg",
         children: [
-          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("svg", {
+          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("svg", {
             className: "w-6 h-6",
             fill: "currentColor",
             viewBox: "0 0 24 24",
-            children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("path", {
+            children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("path", {
               d: "M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
             }, undefined, false, undefined, this)
           }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
             children: "Twitter"
           }, undefined, false, undefined, this)
         ]
       }, undefined, true, undefined, this)
     }, undefined, false, undefined, this),
-    /* @__PURE__ */ jsx_dev_runtime2.jsxDEV(SocialLink, {
+    /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(SocialLink, {
       href: "https://l.nekomimi.pet/bsky?source=nekomimi.pet",
       label: "Bluesky",
-      children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+      children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
         className: "flex items-center gap-3 text-lg",
         children: [
-          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("svg", {
+          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("svg", {
             className: "w-6 h-6",
             fill: "currentColor",
             viewBox: "0 0 24 24",
-            children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("path", {
+            children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("path", {
               d: "M6.85 6.5c2.08 1.56 4.31 4.73 5.14 6.42.83-1.7 3.06-4.86 5.14-6.42 1.5-1.13 3.93-2 3.93.78 0 .55-.32 4.65-.5 5.32-.65 2.31-3 2.9-5.1 2.54 3.67.62 4.6 2.69 2.58 4.76-3.83 3.92-5.5-.99-5.93-2.24-.08-.23-.12-.34-.12-.25 0-.09-.04.02-.12.25-.43 1.25-2.1 6.16-5.93 2.24-2.02-2.07-1.09-4.14 2.58-4.76-2.1.36-4.45-.23-5.1-2.54-.19-.67-.5-4.77-.5-5.32 0-2.77 2.43-1.9 3.93-.78z"
             }, undefined, false, undefined, this)
           }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("span", {
+          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
             children: "Bluesky"
           }, undefined, false, undefined, this)
         ]
@@ -39251,32 +39265,32 @@ var SocialLinks = () => /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
 var import_react5 = __toESM(require_react(), 1);
 
 // src/components/PostList.tsx
-var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime4 = __toESM(require_jsx_dev_runtime(), 1);
 var PostList = ({ posts, onPostClick }) => {
-  return /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+  return /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("div", {
     className: "flex flex-col gap-4",
-    children: posts.map((post, index) => /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+    children: posts.map((post, index) => /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("div", {
       onClick: () => onPostClick(post),
       className: `block bg-black/20 text-white p-4 rounded-md transition duration-300 
                     transform hover:scale-102 hover:bg-black/30 cursor-pointer border border-white/5`,
-      children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+      children: /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("div", {
         className: "flex flex-col",
         children: [
-          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("h2", {
+          /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("h2", {
             className: "text-xl font-semibold",
             children: post.title
           }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("p", {
+          /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("p", {
             className: "text-gray-300 text-sm mt-1",
             children: post.excerpt
           }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+          /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("div", {
             className: "flex justify-between items-center mt-2 text-gray-400 text-xs",
             children: [
-              /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+              /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("span", {
                 children: post.date
               }, undefined, false, undefined, this),
-              /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+              /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("span", {
                 children: [
                   "By ",
                   post.author
@@ -39291,7 +39305,7 @@ var PostList = ({ posts, onPostClick }) => {
 };
 
 // src/components/WritingsPanel.tsx
-var jsx_dev_runtime4 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime5 = __toESM(require_jsx_dev_runtime(), 1);
 var WritingsPanel = ({ posts, onPostClick }) => {
   const [mounted, setMounted] = import_react5.useState(false);
   const [isOpen, setIsOpen] = import_react5.useState(false);
@@ -39328,9 +39342,9 @@ var WritingsPanel = ({ posts, onPostClick }) => {
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
   }, [isOpen]);
-  return /* @__PURE__ */ jsx_dev_runtime4.jsxDEV(jsx_dev_runtime4.Fragment, {
+  return /* @__PURE__ */ jsx_dev_runtime5.jsxDEV(jsx_dev_runtime5.Fragment, {
     children: [
-      /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("button", {
+      /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("button", {
         ref: buttonRef,
         onClick: togglePanel,
         className: `fixed bottom-32 left-1/2 -translate-x-1/2 bg-black/30 hover:bg-black/50 
@@ -39338,16 +39352,16 @@ var WritingsPanel = ({ posts, onPostClick }) => {
                   transition-all duration-300 shadow-lg hover:shadow-orange-300/20 
                   flex items-center gap-2 z-10 ${isOpen ? "bg-black/50 text-orange-300" : ""}`,
         children: [
-          /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("span", {
+          /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("span", {
             className: "text-lg font-medium",
             children: "my writings"
           }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("svg", {
+          /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("svg", {
             xmlns: "http://www.w3.org/2000/svg",
             className: `h-5 w-5 transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`,
             viewBox: "0 0 20 20",
             fill: "currentColor",
-            children: /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("path", {
+            children: /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("path", {
               fillRule: "evenodd",
               d: "M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z",
               clipRule: "evenodd"
@@ -39355,7 +39369,7 @@ var WritingsPanel = ({ posts, onPostClick }) => {
           }, undefined, false, undefined, this)
         ]
       }, undefined, true, undefined, this),
-      mounted && /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("div", {
+      mounted && /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("div", {
         ref: panelRef,
         className: "fixed inset-x-0 bottom-0 transform z-20",
         style: {
@@ -39363,27 +39377,27 @@ var WritingsPanel = ({ posts, onPostClick }) => {
           transform: isOpen ? "translateY(0)" : "translateY(100%)"
         },
         "aria-expanded": isOpen,
-        children: /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("div", {
+        children: /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("div", {
           className: "bg-black/40 backdrop-blur-md rounded-t-2xl shadow-lg max-h-[80vh] overflow-y-auto pb-24",
           children: [
-            /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("div", {
+            /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("div", {
               className: "flex justify-between items-center p-4 border-b border-white/10 sticky top-0 bg-black/40 backdrop-blur-md z-10",
               children: [
-                /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("h2", {
+                /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("h2", {
                   className: "text-xl font-medium text-white/90",
                   children: "Writings"
                 }, undefined, false, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("button", {
+                /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("button", {
                   onClick: () => setIsOpen(false),
                   className: "text-white/70 hover:text-white/90 p-2",
                   "aria-label": "Close panel",
-                  children: /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("svg", {
+                  children: /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("svg", {
                     xmlns: "http://www.w3.org/2000/svg",
                     className: "h-6 w-6",
                     fill: "none",
                     viewBox: "0 0 24 24",
                     stroke: "currentColor",
-                    children: /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("path", {
+                    children: /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("path", {
                       strokeLinecap: "round",
                       strokeLinejoin: "round",
                       strokeWidth: 2,
@@ -39393,9 +39407,9 @@ var WritingsPanel = ({ posts, onPostClick }) => {
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("div", {
+            /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("div", {
               className: "p-4",
-              children: /* @__PURE__ */ jsx_dev_runtime4.jsxDEV(PostList, {
+              children: /* @__PURE__ */ jsx_dev_runtime5.jsxDEV(PostList, {
                 posts,
                 onPostClick: (post) => {
                   onPostClick(post);
@@ -40893,12 +40907,12 @@ function productionCreate(_, jsx, jsxs) {
     return key ? fn(type, props, key) : fn(type, props);
   }
 }
-function developmentCreate(filePath, jsxDEV5) {
+function developmentCreate(filePath, jsxDEV6) {
   return create2;
   function create2(node, type, props, key) {
     const isStaticChildren = Array.isArray(props.children);
     const point3 = pointStart(node);
-    return jsxDEV5(type, props, key, isStaticChildren, {
+    return jsxDEV6(type, props, key, isStaticChildren, {
       columnNumber: point3 ? point3.column - 1 : undefined,
       fileName: filePath,
       lineNumber: point3 ? point3.line : undefined
@@ -51966,7 +51980,7 @@ var atom_dark_default = {
   }
 };
 // src/components/SEO.tsx
-var jsx_dev_runtime5 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime6 = __toESM(require_jsx_dev_runtime(), 1);
 var SEO = ({
   title,
   description,
@@ -51977,66 +51991,66 @@ var SEO = ({
 }) => {
   const siteUrl = url || window.location.origin;
   const imageUrl = image3 || `${siteUrl}/default-og-image.jpg`;
-  return /* @__PURE__ */ jsx_dev_runtime5.jsxDEV(Helmet, {
+  return /* @__PURE__ */ jsx_dev_runtime6.jsxDEV(Helmet, {
     children: [
-      /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("title", {
+      /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("title", {
         children: title
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+      /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
         name: "description",
         content: description
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+      /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
         property: "og:type",
         content: type
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+      /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
         property: "og:url",
         content: url || window.location.href
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+      /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
         property: "og:title",
         content: title
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+      /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
         property: "og:description",
         content: description
       }, undefined, false, undefined, this),
-      image3 && /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+      image3 && /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
         property: "og:image",
         content: imageUrl
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+      /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
         name: "twitter:card",
         content: "summary_large_image"
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+      /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
         name: "twitter:title",
         content: title
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+      /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
         name: "twitter:description",
         content: description
       }, undefined, false, undefined, this),
-      image3 && /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+      image3 && /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
         name: "twitter:image",
         content: imageUrl
       }, undefined, false, undefined, this),
-      article && /* @__PURE__ */ jsx_dev_runtime5.jsxDEV(jsx_dev_runtime5.Fragment, {
+      article && /* @__PURE__ */ jsx_dev_runtime6.jsxDEV(jsx_dev_runtime6.Fragment, {
         children: [
-          article.publishedTime && /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+          article.publishedTime && /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
             property: "article:published_time",
             content: article.publishedTime
           }, undefined, false, undefined, this),
-          article.modifiedTime && /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+          article.modifiedTime && /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
             property: "article:modified_time",
             content: article.modifiedTime
           }, undefined, false, undefined, this),
-          article.author && /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+          article.author && /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
             property: "article:author",
             content: article.author
           }, undefined, false, undefined, this),
-          article.tags && article.tags.map((tag, index2) => /* @__PURE__ */ jsx_dev_runtime5.jsxDEV("meta", {
+          article.tags && article.tags.map((tag, index2) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("meta", {
             property: "article:tag",
             content: tag
           }, index2, false, undefined, this))
@@ -52047,7 +52061,7 @@ var SEO = ({
 };
 
 // src/components/Modal.tsx
-var jsx_dev_runtime6 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
 var Modal = ({
   isOpen,
   onClose,
@@ -52093,12 +52107,12 @@ var Modal = ({
   }, [mounted, onClose]);
   if (!mounted)
     return null;
-  return /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("div", {
+  return /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("div", {
     className: `fixed inset-0 flex items-center justify-center bg-black/60 z-50
                 transition-all duration-300 ease-out
                 ${animateIn ? "opacity-100" : "opacity-0"}`,
     style: { perspective: "1000px" },
-    children: /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("div", {
+    children: /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("div", {
       className: `p-8 rounded-md shadow-lg relative max-w-3xl w-full
                   bg-white/20 backdrop-blur-md text-white overflow-y-auto max-h-[80vh]
                   transition-all duration-300 ease-out
@@ -52106,17 +52120,17 @@ var Modal = ({
       ref: modalRef,
       style,
       children: [
-        /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("button", {
+        /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("button", {
           onClick: onClose,
           className: `absolute top-4 right-4 text-gray-300 hover:text-gray-100 p-2
                     transition-all duration-200 hover:rotate-90`,
-          children: /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("svg", {
+          children: /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("svg", {
             xmlns: "http://www.w3.org/2000/svg",
             className: "h-6 w-6",
             fill: "none",
             viewBox: "0 0 24 24",
             stroke: "currentColor",
-            children: /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("path", {
+            children: /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("path", {
               strokeLinecap: "round",
               strokeLinejoin: "round",
               strokeWidth: 2,
@@ -52136,9 +52150,9 @@ var PostModal = ({
 }) => {
   if (!post2)
     return null;
-  return /* @__PURE__ */ jsx_dev_runtime6.jsxDEV(jsx_dev_runtime6.Fragment, {
+  return /* @__PURE__ */ jsx_dev_runtime7.jsxDEV(jsx_dev_runtime7.Fragment, {
     children: [
-      isOpen && /* @__PURE__ */ jsx_dev_runtime6.jsxDEV(SEO, {
+      isOpen && /* @__PURE__ */ jsx_dev_runtime7.jsxDEV(SEO, {
         title: post2.title,
         description: post2.excerpt,
         image: post2.featuredImage,
@@ -52149,93 +52163,93 @@ var PostModal = ({
           tags: post2.tags
         }
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime6.jsxDEV(Modal, {
+      /* @__PURE__ */ jsx_dev_runtime7.jsxDEV(Modal, {
         isOpen,
         onClose,
-        children: /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("div", {
+        children: /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("div", {
           className: "flex flex-col",
           children: [
-            /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("h2", {
+            /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("h2", {
               className: "text-3xl font-bold mb-4",
               children: post2.title
             }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("div", {
+            /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("div", {
               className: "flex justify-between items-center text-sm text-gray-400 mb-4",
               children: [
-                /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("span", {
+                /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("span", {
                   children: [
                     "By ",
                     post2.author
                   ]
                 }, undefined, true, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("span", {
+                /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("span", {
                   children: post2.date
                 }, undefined, false, undefined, this)
               ]
             }, undefined, true, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime6.jsxDEV(Markdown, {
+            /* @__PURE__ */ jsx_dev_runtime7.jsxDEV(Markdown, {
               remarkPlugins: [remarkGfm, remarkBreaks],
               components: {
-                h1: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("h1", {
+                h1: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("h1", {
                   className: "text-4xl font-bold mb-4",
                   ...props
                 }, undefined, false, undefined, this),
-                h2: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("h2", {
+                h2: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("h2", {
                   className: "text-3xl font-semibold mb-3",
                   ...props
                 }, undefined, false, undefined, this),
-                h3: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("h3", {
+                h3: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("h3", {
                   className: "text-2xl font-semibold mb-2",
                   ...props
                 }, undefined, false, undefined, this),
-                p: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("p", {
+                p: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("p", {
                   className: "text-gray-300 mb-4",
                   ...props
                 }, undefined, false, undefined, this),
-                a: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("a", {
+                a: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("a", {
                   className: "text-blue-400 hover:text-blue-300",
                   ...props
                 }, undefined, false, undefined, this),
-                ul: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("ul", {
+                ul: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("ul", {
                   className: "list-disc list-inside text-gray-300",
                   ...props
                 }, undefined, false, undefined, this),
-                ol: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("ol", {
+                ol: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("ol", {
                   className: "list-decimal list-inside text-gray-300",
                   ...props
                 }, undefined, false, undefined, this),
-                li: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("li", {
+                li: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("li", {
                   className: "mb-1",
                   ...props
                 }, undefined, false, undefined, this),
                 code: ({ node: node2, className, children, ...props }) => {
                   const match = /language-(\w+)/.exec(className || "");
-                  return match ? /* @__PURE__ */ jsx_dev_runtime6.jsxDEV(prism_default2, {
+                  return match ? /* @__PURE__ */ jsx_dev_runtime7.jsxDEV(prism_default2, {
                     style: atom_dark_default,
                     language: match[1],
                     children: String(children).replace(/\n$/, "")
-                  }, undefined, false, undefined, this) : /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("code", {
+                  }, undefined, false, undefined, this) : /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("code", {
                     className: "bg-gray-700 rounded-md p-1 font-mono",
                     ...props,
                     children
                   }, undefined, false, undefined, this);
                 },
-                pre: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV(jsx_dev_runtime6.Fragment, {
+                pre: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV(jsx_dev_runtime7.Fragment, {
                   children: props.children
                 }, undefined, false, undefined, this),
-                blockquote: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("blockquote", {
+                blockquote: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("blockquote", {
                   className: "border-l-4 border-gray-500 pl-4 italic text-gray-400 mb-4",
                   ...props
                 }, undefined, false, undefined, this),
-                table: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("table", {
+                table: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("table", {
                   className: "table-auto mb-4 w-full",
                   ...props
                 }, undefined, false, undefined, this),
-                th: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("th", {
+                th: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("th", {
                   className: "border px-4 py-2 text-left",
                   ...props
                 }, undefined, false, undefined, this),
-                td: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime6.jsxDEV("td", {
+                td: ({ node: node2, ...props }) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("td", {
                   className: "border px-4 py-2",
                   ...props
                 }, undefined, false, undefined, this),
@@ -52252,32 +52266,32 @@ var PostModal = ({
 
 // src/components/DrawingsModal.tsx
 var import_react10 = __toESM(require_react(), 1);
-var jsx_dev_runtime7 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime(), 1);
 var DrawingsModal = ({ drawings }) => {
   const [isOpen, setIsOpen] = import_react10.useState(false);
-  return /* @__PURE__ */ jsx_dev_runtime7.jsxDEV(jsx_dev_runtime7.Fragment, {
+  return /* @__PURE__ */ jsx_dev_runtime8.jsxDEV(jsx_dev_runtime8.Fragment, {
     children: [
-      /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("button", {
+      /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("button", {
         onClick: () => setIsOpen(true),
         className: `fixed bottom-16 left-1/2 -translate-x-1/2 bg-black/30 hover:bg-black/50
                   text-white/80 hover:text-orange-300 backdrop-blur-md px-5 py-3 rounded-full
                   transition-all duration-300 shadow-lg hover:shadow-orange-300/20
                   flex items-center gap-2 z-10`,
         children: [
-          /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("span", {
+          /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("span", {
             className: "text-lg font-medium",
             children: "my drawings"
           }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("svg", {
+          /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("svg", {
             xmlns: "http://www.w3.org/2000/svg",
             className: "h-5 w-5",
             viewBox: "0 0 20 20",
             fill: "currentColor",
             children: [
-              /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("path", {
+              /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("path", {
                 d: "M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"
               }, undefined, false, undefined, this),
-              /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("path", {
+              /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("path", {
                 fillRule: "evenodd",
                 d: "M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z",
                 clipRule: "evenodd"
@@ -52286,7 +52300,7 @@ var DrawingsModal = ({ drawings }) => {
           }, undefined, true, undefined, this)
         ]
       }, undefined, true, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime7.jsxDEV(Modal, {
+      /* @__PURE__ */ jsx_dev_runtime8.jsxDEV(Modal, {
         isOpen,
         onClose: () => setIsOpen(false),
         style: {
@@ -52294,29 +52308,29 @@ var DrawingsModal = ({ drawings }) => {
           maxHeight: "85vh",
           overflow: "auto"
         },
-        children: /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("div", {
+        children: /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("div", {
           className: "flex flex-col h-full",
           children: [
-            /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("h2", {
+            /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("h2", {
               className: "text-3xl font-bold mb-6",
               children: "My Drawings (usually flat color anime girls)"
             }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("div", {
+            /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("div", {
               className: "grid gap-6 overflow-y-auto",
               style: {
                 gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
                 gridAutoRows: "min-content"
               },
-              children: drawings.map((drawing, index2) => /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("div", {
+              children: drawings.map((drawing, index2) => /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("div", {
                 className: "bg-black/30 rounded-lg overflow-hidden border border-white/10 hover:border-white/30 transition-all h-full flex flex-col",
                 children: [
-                  /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("div", {
+                  /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("div", {
                     className: "relative overflow-hidden",
                     style: {
                       paddingTop: "75%",
                       position: "relative"
                     },
-                    children: /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("img", {
+                    children: /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("img", {
                       src: drawing.url,
                       alt: drawing.title,
                       className: "absolute top-0 left-0 hover:scale-105 transition-transform duration-500",
@@ -52327,18 +52341,18 @@ var DrawingsModal = ({ drawings }) => {
                       }
                     }, undefined, false, undefined, this)
                   }, undefined, false, undefined, this),
-                  /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("div", {
+                  /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("div", {
                     className: "p-4 flex-grow",
                     children: [
-                      /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("h3", {
+                      /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("h3", {
                         className: "text-xl font-medium mb-2",
                         children: drawing.title
                       }, undefined, false, undefined, this),
-                      /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("p", {
+                      /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("p", {
                         className: "text-gray-300 text-sm mb-2",
                         children: drawing.description
                       }, undefined, false, undefined, this),
-                      /* @__PURE__ */ jsx_dev_runtime7.jsxDEV("p", {
+                      /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("p", {
                         className: "text-gray-400 text-xs",
                         children: drawing.date
                       }, undefined, false, undefined, this)
@@ -52355,8 +52369,8 @@ var DrawingsModal = ({ drawings }) => {
 };
 
 // src/pages/index.tsx
-var jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime(), 1);
-var BgSource = () => /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("a", {
+var jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime(), 1);
+var BgSource = () => /* @__PURE__ */ jsx_dev_runtime9.jsxDEV("a", {
   href: "https://danbooru.donmai.us/posts/7229968",
   target: "_blank",
   rel: "noopener noreferrer",
@@ -52428,45 +52442,45 @@ function Home({ posts: initialPosts, drawings: initialDrawings, currentPost }) {
     }
     loadData();
   }, [initialPosts, initialDrawings, currentPost]);
-  return /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("div", {
+  return /* @__PURE__ */ jsx_dev_runtime9.jsxDEV("div", {
     className: "min-h-screen relative bg-[url('/background.jpg')] bg-cover bg-center",
     children: [
-      /* @__PURE__ */ jsx_dev_runtime8.jsxDEV(Profile, {
+      /* @__PURE__ */ jsx_dev_runtime9.jsxDEV(Profile, {
         avatarSrc: "/avatar.jpg",
         username: "waveringana"
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime8.jsxDEV(SocialLinks, {}, undefined, false, undefined, this),
-      loading ? /* @__PURE__ */ jsx_dev_runtime8.jsxDEV("div", {
+      /* @__PURE__ */ jsx_dev_runtime9.jsxDEV(SocialLinks, {}, undefined, false, undefined, this),
+      loading ? /* @__PURE__ */ jsx_dev_runtime9.jsxDEV("div", {
         className: "fixed bottom-16 left-1/2 -translate-x-1/2 text-white/70 bg-black/30 backdrop-blur-md px-5 py-3 rounded-full",
         children: "Loading content..."
-      }, undefined, false, undefined, this) : /* @__PURE__ */ jsx_dev_runtime8.jsxDEV(jsx_dev_runtime8.Fragment, {
+      }, undefined, false, undefined, this) : /* @__PURE__ */ jsx_dev_runtime9.jsxDEV(jsx_dev_runtime9.Fragment, {
         children: [
-          /* @__PURE__ */ jsx_dev_runtime8.jsxDEV(WritingsPanel, {
+          /* @__PURE__ */ jsx_dev_runtime9.jsxDEV(WritingsPanel, {
             posts,
             onPostClick: handlePostClick
           }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime8.jsxDEV(DrawingsModal, {
+          /* @__PURE__ */ jsx_dev_runtime9.jsxDEV(DrawingsModal, {
             drawings
           }, undefined, false, undefined, this)
         ]
       }, undefined, true, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime8.jsxDEV(PostModal, {
+      /* @__PURE__ */ jsx_dev_runtime9.jsxDEV(PostModal, {
         post: selectedPost,
         isOpen: isModalOpen,
         onClose: closeModal
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime8.jsxDEV(BgSource, {}, undefined, false, undefined, this)
+      /* @__PURE__ */ jsx_dev_runtime9.jsxDEV(BgSource, {}, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
 }
 
 // src/frontend.tsx
-var jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime(), 1);
 document.addEventListener("DOMContentLoaded", () => {
   const rootElement = document.getElementById("root");
   if (!rootElement)
     throw new Error("Root element not found");
-  import_client.createRoot(rootElement).render(/* @__PURE__ */ jsx_dev_runtime9.jsxDEV(HelmetProvider, {
-    children: /* @__PURE__ */ jsx_dev_runtime9.jsxDEV(Home, {}, undefined, false, undefined, this)
+  import_client.createRoot(rootElement).render(/* @__PURE__ */ jsx_dev_runtime10.jsxDEV(HelmetProvider, {
+    children: /* @__PURE__ */ jsx_dev_runtime10.jsxDEV(Home, {}, undefined, false, undefined, this)
   }, undefined, false, undefined, this));
 });
