@@ -25,7 +25,7 @@ The inconsistency destroyed what I valued most: the ability to measure my progre
 
 ## The Data Backs This Up
 
-Activision's own research confirms what I've felt all along. When they tested reduced SBMM in Modern Warfare III:
+[Activision's own research](https://www.activision.com/cdn/research/CallofDuty_Matchmaking_Series_2.pdf) confirms what I've felt all along. When they tested reduced SBMM in Modern Warfare III:
 
 - Player retention decreased for 90% of players
 - Only the top 10% most skilled players returned at higher rates
