@@ -2,52 +2,28 @@
 author: waveringana
 date: 2025-02-25
 title: I enjoy SBMM in FPS games as a good player.
-excerpt: What lessons the FPS community should take from the FGC
+excerpt: Players who complain about "sweaty" matches are afraid of the mirror.
 ---
 
-# In Defense of SBMM: Why "Sweaty" Matches Make Games Better
+I'll say what needs to be said: players who complain about "sweaty" matches are afraid of the mirror. They're running from the truth that real growth only happens at the edge of your ability.
 
-As a skilled FPS player who's invested thousands of hours across Destiny 2, Call of Duty, and Fortnite, I have a confession that might be unpopular: I actually *love* skill-based matchmaking. And I think the "SBMM ruins games" crowd is completely missing the point.
 
-## The "Sweaty" Complaint
+When I face players of equal skill, something fundamentally different happens. Each engagement becomes a conversation. Each defeat reveals something about myself I couldn't see before. This tight feedback loop of challenge, failure, and adaptation isn't just how you improve, but it's the entire point of competitive gaming.
 
-Let's address the elephant in the room. The most common complaint I hear is that SBMM makes games "too sweaty" - meaning everyone's trying hard and you can't just relax. But isn't that exactly what makes gaming rewarding?
 
-When I face similarly skilled opponents, every gunfight becomes meaningful. Victories feel earned. Defeats teach me something. That tight feedback loop of challenge → adaptation → improvement is what keeps me coming back day after day.
+The hatred of SBMM reveals our collective weakness. We've built a culture that celebrates hollow victories over mismatched opponents. We've convinced ourselves that "fun" means dominating those who never had a chance. This isn't just bad game design it's a spiritual sickness.
 
-## My Destiny 2 Nightmare
 
-I experienced firsthand what happens without proper SBMM in Destiny 2. During Forsaken and Shadowkeep when SBMM was strict, I played Crucible daily. Each match was challenging but fair.
+I experienced this firsthand in Destiny 2. During the SBMM era, Crucible was alive. Matches felt like genuine tests of skill rather than random accidents of matchmaking. Then they loosened the algorithm, and the soul of competition died. Matches became coin flips between pointless stomps and helpless defeats. Neither scenario created meaning or growth.
 
-Then they loosened SBMM, and my experience completely fell apart. Suddenly matches became a coin flip between stomping inexperienced players (boring) or getting demolished by players far beyond my skill level (frustrating). Neither scenario helped me improve.
 
-The inconsistency destroyed what I valued most: the ability to measure my progress. Was I performing well because I'd improved, or just because matchmaking gave me easier opponents? This uncertainty made the game feel pointless.
+What disappeared wasn't just balance, but the ability to measure my own progress. Was I performing well because I'd improved, or just because the algorithm handed me easier opponents? This uncertainty hollowed out what I valued most: the honest feedback that only comes from facing your equals.
 
-## The Data Backs This Up
 
-[Activision's own research](https://www.activision.com/cdn/research/CallofDuty_Matchmaking_Series_2.pdf) confirms what I've felt all along. When they tested reduced SBMM in Modern Warfare III:
+The fighting game community understands what FPS players refuse to see. They seek worthy opponents not despite the challenge but because of it. They celebrate the painful process of adaptation. They recognize that the most profound satisfaction comes not from easy victories but from overcoming genuine resistance.
 
-- Player retention decreased for 90% of players
-- Only the top 10% most skilled players returned at higher rates
-- Quit rates increased significantly 
-- One-sided "blowout" matches increased across all skill levels
 
-Even those top players who initially benefited eventually suffered as the player pool shrank and became more competitive. It's not sustainable.
+The most powerful gaming moments aren't the easy victories. They're the clutch plays against worthy opponents. The adaptations that turn previous defeats into new victories. The discoveries about yourself that only come from honest competition.
 
-## The Fighting Game Community Gets It
 
-Fighting game players understand this instinctively. They actively seek opponents of similar or slightly higher skill - challenging but winnable matches where they can "download" their opponent's patterns and adapt. They celebrate the moment when a previously difficult matchup becomes manageable through practice.
-
-FPS players who complain about "sweaty" matches are essentially complaining about having to improve. They're rejecting the most rewarding part of competitive gaming.
-
-## SBMM Isn't For Every Game
-
-That said, context matters. Games like Team Fortress 2 with diverse class roles or Battlefield's massive battles naturally create space for various skill levels. And "Mario Party"-style chaotic fun games shouldn't have strict SBMM at all.
-
-But for competitive shooters where skill gaps determine the entire experience? SBMM creates better games for nearly everyone.
-
-## The Bottom Line
-
-When I hear players complain about matches being "too sweaty," what I really hear is: "I want to feel powerful without having to improve." But easy victories over mismatched opponents are hollow.
-
-The most memorable gaming moments come from those close matches, the clutch plays, the comebacks against worthy opponents. That's what SBMM provides, and that's why I'll defend it every time.
+Those who fear the mirror will never see themselves clearly. Those who avoid worthy opponents will never know their true capacity. The question isn't whether SBMM makes games better—it's whether we have the courage to face our equals and grow from what we find there.
