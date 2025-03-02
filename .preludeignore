@@ -8,3 +8,4 @@ Dockerfile
 *.yml
 *.png
 *.jpeg
+*.js
