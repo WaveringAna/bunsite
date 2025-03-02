@@ -2,7 +2,15 @@
 import { readdir, readFile } from 'fs/promises';
 import path from 'path';
 import { type PostCard } from '../components/PostList';
-import type { Post } from './types';
+
+export interface Post {
+  author: string;
+  date: string;
+  title: string;
+  excerpt: string;
+  slug: string;
+  content: string;
+}
 
 export async function getPosts(): Promise<PostCard[]> {
   const postsDirectory = path.join(process.cwd(), 'content/posts');

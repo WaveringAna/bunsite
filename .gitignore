@@ -10,10 +10,6 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
-build/*
-
-*.js
-
 # Caches
 
 .cache

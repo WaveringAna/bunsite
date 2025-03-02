@@ -3,8 +3,7 @@ import { Profile } from "../components/Profile";
 import { SocialLinks } from "../components/SocialLinks";
 import { WritingsPanel } from "../components/WritingsPanel";
 import { PostModal } from "../components/Modal";
-import { DrawingsModal } from "../components/DrawingsModal";
-import type { Drawing } from "../lib/types";
+import { DrawingsModal, type Drawing } from "../components/DrawingsModal";
 import { type PostCard } from "../components/PostList";
 
 const BgSource = () => (

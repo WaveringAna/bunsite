@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Modal } from './Modal';
-import type { Drawing } from '../lib/types';
+
+export interface Drawing {
+    title: string;
+    description: string;
+    date: string;
+    url: string;
+}
 
 interface DrawingsModalProps {
     drawings: Drawing[];
