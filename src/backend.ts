@@ -55,6 +55,11 @@ serve({
             }
         },
         "/api/drawings": Response.json(drawingsJson),
+        "/resume": new Response(await Bun.file("./src/public/resume.pdf").bytes(), {
+            headers: {
+                "Content-Type": "application/pdf",
+            },
+        }),
         "/public/*": async (request) => {
             try {
                 const url = new URL(request.url);
