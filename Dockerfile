@@ -1,4 +1,4 @@
-FROM oven/bun:1
+FROM oven/bun:1.2.3
 
 COPY . .
 RUN bun install
