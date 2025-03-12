@@ -1,6 +1,6 @@
 ---
 author: waveringana
-date: 2025-02-25
+date: 2025-03-01
 title: Arete in the 3rd Millennium
 excerpt: A society that values the appearance of skill over the journey of mastery is fundamentally broken. 
 ---
