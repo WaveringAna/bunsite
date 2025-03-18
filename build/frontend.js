@@ -57192,14 +57192,26 @@ var BgSource = () => /* @__PURE__ */ jsx_dev_runtime9.jsxDEV("a", {
   href: SourceUrl,
   target: "_blank",
   rel: "noopener noreferrer",
-  className: `fixed bottom-4 right-4 text-white/50 hover:text-white/70 
+  className: `fixed bottom-10 right-8 text-white/50 hover:text-white/70 
                    text-sm transition-colors backdrop-blur-sm bg-black/20 
                    px-3 py-1.5 rounded-md`,
   children: "bg-source"
 }, undefined, false, undefined, this);
 
-// src/pages/index.tsx
+// src/components/Resume.tsx
 var jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime(), 1);
+var resume = "/resume";
+var Resume = () => /* @__PURE__ */ jsx_dev_runtime10.jsxDEV("a", {
+  href: resume,
+  target: "_blank",
+  rel: "noopener noreferrer",
+  className: `fixed bottom-4 right-8 text-white/50 hover:text-white/70 
+                   text-sm transition-colors underline decoration-dotted`,
+  children: "Want a knowledgeable developer who doesn't vibe code? Here's a resume"
+}, undefined, false, undefined, this);
+
+// src/pages/index.tsx
+var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
 function Home({ posts: initialPosts, drawings: initialDrawings, currentPost }) {
   const ssrData = typeof window !== "undefined" ? window.__INITIAL_DATA__ : null;
   const [posts, setPosts] = import_react12.useState(initialPosts || (ssrData?.posts || []));
@@ -57263,40 +57275,41 @@ function Home({ posts: initialPosts, drawings: initialDrawings, currentPost }) {
     }
     loadData();
   }, [initialPosts, initialDrawings, currentPost]);
-  return /* @__PURE__ */ jsx_dev_runtime10.jsxDEV("div", {
+  return /* @__PURE__ */ jsx_dev_runtime11.jsxDEV("div", {
     className: "min-h-screen relative bg-cover bg-center",
     children: [
-      /* @__PURE__ */ jsx_dev_runtime10.jsxDEV(Profile, {
+      /* @__PURE__ */ jsx_dev_runtime11.jsxDEV(Profile, {
         avatarSrc: "/public/avatar.jpg",
         username: "waveringana"
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime10.jsxDEV(SocialLinks, {}, undefined, false, undefined, this),
-      loading ? /* @__PURE__ */ jsx_dev_runtime10.jsxDEV("div", {
+      /* @__PURE__ */ jsx_dev_runtime11.jsxDEV(SocialLinks, {}, undefined, false, undefined, this),
+      loading ? /* @__PURE__ */ jsx_dev_runtime11.jsxDEV("div", {
         className: "fixed bottom-16 left-1/2 -translate-x-1/2 text-white/70 bg-black/30 backdrop-blur-md px-5 py-3 rounded-full",
         children: "Loading content..."
-      }, undefined, false, undefined, this) : /* @__PURE__ */ jsx_dev_runtime10.jsxDEV(jsx_dev_runtime10.Fragment, {
+      }, undefined, false, undefined, this) : /* @__PURE__ */ jsx_dev_runtime11.jsxDEV(jsx_dev_runtime11.Fragment, {
         children: [
-          /* @__PURE__ */ jsx_dev_runtime10.jsxDEV(WritingsPanel, {
+          /* @__PURE__ */ jsx_dev_runtime11.jsxDEV(WritingsPanel, {
             posts,
             onPostClick: handlePostClick
           }, undefined, false, undefined, this),
-          /* @__PURE__ */ jsx_dev_runtime10.jsxDEV(DrawingsModal, {
+          /* @__PURE__ */ jsx_dev_runtime11.jsxDEV(DrawingsModal, {
             drawings
           }, undefined, false, undefined, this)
         ]
       }, undefined, true, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime10.jsxDEV(PostModal, {
+      /* @__PURE__ */ jsx_dev_runtime11.jsxDEV(PostModal, {
         post: selectedPost,
         isOpen: isModalOpen,
         onClose: closeModal
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime10.jsxDEV(BgSource, {}, undefined, false, undefined, this)
+      /* @__PURE__ */ jsx_dev_runtime11.jsxDEV(BgSource, {}, undefined, false, undefined, this),
+      /* @__PURE__ */ jsx_dev_runtime11.jsxDEV(Resume, {}, undefined, false, undefined, this)
     ]
   }, undefined, true, undefined, this);
 }
 
 // src/frontend.tsx
-var jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime12 = __toESM(require_jsx_dev_runtime(), 1);
 var PostHogOptions = {
   api_host: "https://us.i.posthog.com"
 };
@@ -57305,11 +57318,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const rootElement = document.getElementById("root");
   if (!rootElement)
     throw new Error("Root element not found");
-  import_client.createRoot(rootElement).render(/* @__PURE__ */ jsx_dev_runtime11.jsxDEV(PostHogProvider, {
+  import_client.createRoot(rootElement).render(/* @__PURE__ */ jsx_dev_runtime12.jsxDEV(PostHogProvider, {
     options: PostHogOptions,
     apiKey: PostHogPublicApiKey,
-    children: /* @__PURE__ */ jsx_dev_runtime11.jsxDEV(HelmetProvider, {
-      children: /* @__PURE__ */ jsx_dev_runtime11.jsxDEV(Home, {}, undefined, false, undefined, this)
+    children: /* @__PURE__ */ jsx_dev_runtime12.jsxDEV(HelmetProvider, {
+      children: /* @__PURE__ */ jsx_dev_runtime12.jsxDEV(Home, {}, undefined, false, undefined, this)
     }, undefined, false, undefined, this)
   }, undefined, false, undefined, this));
 });
