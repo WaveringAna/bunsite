@@ -55,6 +55,66 @@ serve({
             }
         },
         "/api/drawings": Response.json(drawingsJson),
+        "/drawings/:slug": async (request) => {
+            try {
+                const url = new URL(request.url);
+                const pathname = url.pathname.replace("/drawings/", "");
+                const drawing = drawingsJson.find((d) => d.slug === pathname);
+
+                if (!drawing) {
+                    return new Response("Not Found", { status: 404 });
+                }
+
+                // Create absolute URL for image
+                const imageUrl = drawing.url.startsWith("http") 
+                    ? drawing.url 
+                    : `${url.origin}${drawing.url}`;
+                
+                const title = drawing.title || drawing.tite || "Drawing"; // Handle potential typo in JSON
+
+                const html = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <meta name="description" content="${drawing.description}">
+                    
+                    <!-- Open Graph / Facebook -->
+                    <meta property="og:type" content="image">
+                    <meta property="og:title" content="${title}">
+                    <meta property="og:description" content="${drawing.description}">
+                    <meta property="og:image" content="${imageUrl}">
+                    
+                    <!-- Twitter -->
+                    <meta property="twitter:card" content="summary_large_image">
+                    <meta property="twitter:title" content="${title}">
+                    <meta property="twitter:description" content="${drawing.description}">
+                    <meta property="twitter:image" content="${imageUrl}">
+                    
+                    <title>${title}</title>
+                    <style>
+                        body { margin: 0; padding: 20px; display: flex; justify-content: center; background: #f5f5f5; }
+                        img { max-width: 100%; max-height: 90vh; object-fit: contain; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+                    </style>
+                </head>
+                <body>
+                    <img src="${drawing.url}" alt="${title}" loading="eager">
+                </body>
+                </html>
+                `;
+                return new Response(html, {
+                    headers: {
+                        "Content-Type": "text/html",
+                        "Cache-Control": "no-cache",
+                    },
+                    status: 200,
+                });
+            } catch (error) {
+                console.error("Error rendering drawing page:", error);
+                return new Response("Not Found", { status: 404 });
+            }
+        },
         "/resume": new Response(await Bun.file("./src/public/resume.pdf").bytes(), {
             headers: {
                 "Content-Type": "application/pdf",

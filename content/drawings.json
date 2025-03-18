@@ -3,66 +3,77 @@
         "tite": "Hatsune Miku kissing Privaty",
         "description": "When I learned that NIKKE has a knock off Miku I had to draw them kissing",
         "date": "2025-03-01",
-        "url": "/public/drawings/Miku-Privaty.jpeg"
+        "url": "/public/drawings/Miku-Privaty.jpeg",
+        "slug": "miku-kissing-privaty"
     },
     {
         "title": "Hatsune Miku at the pool",
         "description": "Hatsune Miku at the pool, her back facing the viewer and her legs going into the water, wearing a bikini",
         "date": "2025-02-27",
-        "url": "/public/drawings/miku-pool.jpg"
+        "url": "/public/drawings/miku-pool.jpg",
+        "slug": "miku-pool"
     },
     {
         "title": "Hatsune Miku listening to music",
         "description": "Hatsune Miku listening to music, inspired by Moondrop's advertising",
         "date": "2025-02-14",
-        "url": "/public/drawings/miku-iem.jpg"
+        "url": "/public/drawings/miku-iem.jpg",
+        "slug": "miku-listening-to-music"
     },
     {
         "title": "Doujin Practice Sketch",
         "description": "Wanted to practice imitating the monochrome style of doujin artists",
         "date": "2024-06-07",
-        "url": "/public/drawings/IMG_0270.jpg"
+        "url": "/public/drawings/IMG_0270.jpg",
+        "slug": "doujin-practice-sketch"
     },
     {
         "title": "My Fox OC",
         "description": "My fox OC in the black dress",
         "date": "2024-04-20",
-        "url": "/public/drawings/IMG_0262-1.png.jpg"
+        "url": "/public/drawings/IMG_0262-1.png.jpg",
+        "slug": "foxy-oc"
     },
     {
         "title": "Gyarus",
         "description": "Two gyarus side by side",
         "date": "2024-04-06",
-        "url": "/public/drawings/IMG_0254.jpeg"
+        "url": "/public/drawings/IMG_0254.jpeg",
+        "slug": "gyarus"
     },
     {
         "title": "Foxgirl",
         "description": "A foxgirl resting on a pillow",
         "date": "2023-11-11",
-        "url": "/public/drawings/IMG_0144.png"
+        "url": "/public/drawings/IMG_0144.png",
+        "slug": "foxgirl-resting"
     },
     {
         "title": "Foxy Butt",
         "description": "My Fox OC showing her butt and back in black denim shorts and leggings with a purple top",
         "date": "2024-02-28",
-        "url": "/public/drawings/IMG_0207.png"
+        "url": "/public/drawings/IMG_0207.png",
+        "slug": "foxy-butt"
     },
     {
         "title": "Anime French General",
         "description": "An anime girl French general",
         "date": "2023-12-26",
-        "url": "/public/drawings/French_General.jpeg"
+        "url": "/public/drawings/French_General.jpeg",
+        "slug": "anime-french-general"
     },
     {
         "title": "Color Practice",
         "description": "An invisible girl in a violet dress, brown hair, and white heels",
         "date": "2024-04-29",
-        "url": "/public/drawings/IMG_0249.png"
+        "url": "/public/drawings/IMG_0249.png",
+        "slug": "color-practice"
     },
     {
         "title": "You Can Touch My Boobs If You Want",
         "description": "My Sharkgirl OC wearing a tshirt with the text 'Sorry You Had a Bad Day, You Can Touch My Boobs If You Want'",
         "date": "2023-10-15",
-        "url": "/public/drawings/IMG_0062.png"
+        "url": "/public/drawings/IMG_0062.png",
+        "slug": "sharkgirl-boobs"
     }
 ]
