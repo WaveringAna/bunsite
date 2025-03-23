@@ -5,7 +5,7 @@ import { type PostCard } from '../components/PostList';
 
 export interface Post {
   author: string;
-  date: string;
+  date: Date;
   title: string;
   excerpt: string;
   slug: string;
@@ -41,7 +41,7 @@ export async function getPosts(): Promise<PostCard[]> {
         
         return {
           author: frontmatter.author || 'waveringana',
-          date: frontmatter.date || new Date().toISOString().split('T')[0],
+          date: frontmatter.date ? new Date(frontmatter.date) : new Date(),
           title: frontmatter.title || 'Untitled',
           excerpt: frontmatter.excerpt || '',
           slug,
@@ -50,5 +50,9 @@ export async function getPosts(): Promise<PostCard[]> {
       })
   );
   
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return posts.sort((a, b) => b.date.getTime() - a.date.getTime())
+    .map(post => ({
+      ...post,
+      date: post.date.toISOString().split('T')[0]
+    }));
 }

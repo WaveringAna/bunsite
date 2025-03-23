@@ -4,7 +4,7 @@ import { getPosts } from "./lib/posts";
 import { renderPost } from "./lib/ssr";
 import { serve, build } from "bun";
 import { mkdir } from "node:fs/promises";
-
+import { generateRSSFeed } from "./lib/rss";
 console.log("Building frontend for ssr...");
 try {
     await mkdir("./build", { recursive: true });
@@ -65,12 +65,11 @@ serve({
                     return new Response("Not Found", { status: 404 });
                 }
 
-                // Create absolute URL for image
                 const imageUrl = drawing.url.startsWith("http") 
                     ? drawing.url 
                     : `${url.origin}${drawing.url}`;
                 
-                const title = drawing.title || drawing.tite || "Drawing"; // Handle potential typo in JSON
+                const title = drawing.title
 
                 const html = `
                 <!DOCTYPE html>
@@ -163,7 +162,12 @@ serve({
                 },
             });
         },
-
+        "/rss.xml": async () => {
+            const rss = await generateRSSFeed();
+            return new Response(rss, {
+                headers: { "Content-Type": "application/rss+xml" },
+            });
+        }
     },
     // Use the fetch handler for dynamic routes (slugs)
     fetch(request) {
