@@ -9,8 +9,9 @@ interface RSSItem {
 }
 
 function createRSSHeader(): string {
-    return `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    return `
+<?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>nekomimi.pet</title>
         <link>https://nekomimi.pet</link>
@@ -53,7 +54,7 @@ export async function generateRSSFeed(): Promise<string> {
         pubDate: new Date(post.date),
         description: post.excerpt,
     }));
-    
+
     return [
         createRSSHeader(),
         ...items.map(createRSSItem),

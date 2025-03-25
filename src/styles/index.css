@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+body {
+    background-color: black;
+    margin: 0;
+}
+
+#root {
+    background-image: url('../public/background.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+#root::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+}

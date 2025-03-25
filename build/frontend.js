@@ -44017,7 +44017,7 @@ var SocialLinks = () => /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
       href: "https://l.nekomimi.pet/github?source=nekomimi.pet",
       label: "GitHub",
       children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-        className: "flex items-center gap-3 text-lg",
+        className: "flex items-center gap-3",
         children: [
           /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("svg", {
             className: "w-6 h-6",
@@ -44039,7 +44039,7 @@ var SocialLinks = () => /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
       href: "https://l.nekomimi.pet/twitter?source=nekomimi.pet",
       label: "Twitter",
       children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-        className: "flex items-center gap-3 text-lg",
+        className: "flex items-center gap-3",
         children: [
           /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("svg", {
             className: "w-6 h-6",
@@ -44059,7 +44059,7 @@ var SocialLinks = () => /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
       href: "https://l.nekomimi.pet/bsky?source=nekomimi.pet",
       label: "Bluesky",
       children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
-        className: "flex items-center gap-3 text-lg",
+        className: "flex items-center gap-3",
         children: [
           /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("svg", {
             className: "w-6 h-6",
@@ -57192,7 +57192,7 @@ var BgSource = () => /* @__PURE__ */ jsx_dev_runtime9.jsxDEV("a", {
   href: SourceUrl,
   target: "_blank",
   rel: "noopener noreferrer",
-  className: `fixed bottom-10 right-8 text-white/50 hover:text-white/70 
+  className: `fixed bottom-16 right-6 sm:bottom-10 sm:right-8 text-white/50 hover:text-white/70 
                    text-sm transition-colors backdrop-blur-sm bg-black/20 
                    px-3 py-1.5 rounded-md`,
   children: "bg-source"
@@ -57276,7 +57276,7 @@ function Home({ posts: initialPosts, drawings: initialDrawings, currentPost }) {
     loadData();
   }, [initialPosts, initialDrawings, currentPost]);
   return /* @__PURE__ */ jsx_dev_runtime11.jsxDEV("div", {
-    className: "min-h-screen relative bg-cover bg-center",
+    className: "min-h-screen relative bg-cover bg-center ",
     children: [
       /* @__PURE__ */ jsx_dev_runtime11.jsxDEV(Profile, {
         avatarSrc: "/public/avatar.jpg",

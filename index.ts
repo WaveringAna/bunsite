@@ -1,1 +1,1 @@
-import "./src/backend.ts";
+import "./src/backend.tsx";
