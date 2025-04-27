@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+body {
+  margin: 1in;
+  padding: 0;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+}
+
+.vibes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.vibe-item {
+  max-width: 25%;
+  height: auto;
+  object-fit: contain;
+  filter: contrast(1.05);
+  transition: transform 0.2s;
+  border: 3px solid #fff;
+  margin-bottom: 10px;
+}
+
+.vibe-item:hover {
+  transform: scale(1.05) rotate(calc(var(--hover-rotate) * 1deg));
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Random rotations for chaotic effect */
+.vibe-item:nth-child(11n+1) { --hover-rotate: 3; }
+.vibe-item:nth-child(7n+2) { --hover-rotate: -4; }
+.vibe-item:nth-child(5n+3) { --hover-rotate: 2; }
+.vibe-item:nth-child(13n+4) { --hover-rotate: -3; }
+.vibe-item:nth-child(17n+5) { --hover-rotate: 5; }
+.vibe-item:nth-child(19n+6) { --hover-rotate: -2; }
+
+/* Random margins for messiness */
+.vibe-item:nth-child(8n) { margin-top: 15px; }
+.vibe-item:nth-child(12n) { margin-left: 10px; }
+.vibe-item:nth-child(9n) { margin-right: 10px; }
+.vibe-item:nth-child(15n) { margin-bottom: 20px; }
+
+@media (max-width: 768px) {
+  .vibe-item {
+    max-width: 45%;
+  }
+}

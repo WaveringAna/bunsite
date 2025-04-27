@@ -1,4 +1,7 @@
 import index from "./public/index.html";
+import vibes from "./public/vibes.html";
+
+
 import drawingsJson from "../content/drawings.json";
 import { getPosts } from "./lib/posts";
 import { renderPost } from "./lib/ssr";
@@ -8,6 +11,7 @@ import { generateRSSFeed } from "./lib/rss";
 import { renderToReadableStream } from "react-dom/server";
 import { DrawingPage } from "./pages/drawing";
 import { $ } from "bun";
+import { getVibes } from "./lib/getVibes";
 
 console.log("Building frontend for ssr and tailwind css...");
 try {
@@ -39,6 +43,21 @@ serve({
     port: 3000,
     routes: {
         "/": index,
+        "/vibes": vibes,
+        "/api/vibes": () => {
+            try {
+                const vibeFiles = getVibes();
+                return Response.json(vibeFiles);
+            } catch (error) {
+                console.error('Error fetching vibes:', error);
+                return new Response(JSON.stringify({ error: 'Failed to fetch vibes' }), {
+                    status: 500,
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+            }
+        },
         "/favicon.ico": new Response(await Bun.file("./src/public/avatar.jpg").bytes(), {
             headers: {
                 "Content-Type": "image/x-icon",
@@ -158,6 +177,7 @@ serve({
             });
         }
     },
+    development: process.env.NODE_ENV !== "production",
     // Use the fetch handler for dynamic routes (slugs)
     fetch(request) {
         const url = new URL(request.url);

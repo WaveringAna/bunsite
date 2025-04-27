@@ -1,3 +1,5 @@
+import "../styles/index.css";
+
 import { useState, useEffect } from "react";
 import { Profile } from "../components/Profile";
 import { SocialLinks } from "../components/SocialLinks";
@@ -6,7 +8,7 @@ import { PostModal } from "../components/Modal";
 import { DrawingsModal, type Drawing } from "../components/DrawingsModal";
 import { type PostCard } from "../components/PostList";
 import { BgSource } from "../components/BgSource";
-import { Resume } from "../components/Resume";
+//import { Resume } from "../components/Resume";
 
 
 export default function Home({ posts: initialPosts, drawings: initialDrawings, currentPost }: {
@@ -108,7 +110,7 @@ export default function Home({ posts: initialPosts, drawings: initialDrawings, c
 			)}
 			<PostModal post={selectedPost} isOpen={isModalOpen} onClose={closeModal} />
 			<BgSource />
-			<Resume />
+			{/*<Resume />*/}
 		</div>
 	);
 }
