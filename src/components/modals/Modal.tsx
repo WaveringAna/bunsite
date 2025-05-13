@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark as dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { SEO } from './SEO';
+import { SEO } from '../SEO';
 
 interface ModalProps {
   isOpen: boolean;

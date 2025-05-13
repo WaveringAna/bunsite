@@ -16,20 +16,19 @@ export interface PostListProps {
 
 export const PostList = ({ posts, onPostClick }: PostListProps) => {
   return (
-    <div className="flex flex-col gap-4">
-      {posts.map((post, index) => (
+    <div className="grid gap-4">
+      {posts.map((post) => (
         <div
-          key={index}
+          key={post.slug}
           onClick={() => onPostClick(post)}
-          className="block bg-black/20 text-white p-4 rounded-md transition duration-300 
-                    transform hover:scale-102 hover:bg-black/30 cursor-pointer border border-white/5"
+          className="bg-black/30 rounded-lg overflow-hidden hover:bg-black/50 transition-all duration-300 cursor-pointer border border-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-orange-300/10"
         >
-          <div className="flex flex-col">
-            <h2 className="text-xl font-semibold">{post.title}</h2>
-            <p className="text-gray-300 text-sm mt-1">{post.excerpt}</p>
-            <div className="flex justify-between items-center mt-2 text-gray-400 text-xs">
+          <div className="p-4">
+            <h3 className="text-xl font-semibold mb-2 text-white">{post.title}</h3>
+            <p className="text-gray-300 text-sm mb-2 line-clamp-2">{post.excerpt}</p>
+            <div className="flex justify-between text-xs text-gray-400">
+              <span>{post.author}</span>
               <span>{post.date}</span>
-              <span>By {post.author}</span>
             </div>
           </div>
         </div>

@@ -17,7 +17,7 @@ const SocialLink = ({ href, label, children }: SocialLinkProps) => (
 );
 
 export const SocialLinks = () => (
-    <div className="fixed left-8 top-1/2 -translate-y-1/2 flex flex-col gap-6">
+    <div className="absolute left-8 top-0 h-full flex flex-col justify-center gap-6">
         <SocialLink href="https://l.nekomimi.pet/github?source=nekomimi.pet" label="GitHub">
             <div className="flex items-center gap-3">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Before the Soul Dawn - Helen Keller on Her Life Before Self-Consciousness",
+    "url": "https://scentofdawn.blogspot.com/2011/07/before-soul-dawn-helen-keller-on-her.html",
+    "author": "Helen Keller",
+    "date": "2025-05-10"
+  },
+  {
+    "title": "Structure and Interpretation of Computer Programs",
+    "url": "https://web.mit.edu/6.001/6.037/sicp.pdf",
+    "author": "Abelson & Sussman",
+    "date": "2023-03-15"
+  },
+  {
+    "title": "Gotify - Simple Server for Sending Messages in Real-time",
+    "url": "https://github.com/gotify/server",
+    "author": "Gotify",
+    "date": "2025-01-12"
+  },
+  {
+    "title": "OrbStack - Fast, Light Docker & Linux",
+    "url": "https://orbstack.dev",
+    "author": "OrbStack Team",
+    "date": "2024-01-17"
+  },
+  {
+    "title": "Payload CMS - The Next.js Headless CMS",
+    "url": "https://payloadcms.com",
+    "author": "Payload CMS Team",
+    "date": "2024-01-15"
+  },
+  {
+    "title": "How to Rob a Mobile Carrier",
+    "url": "https://github.com/n0sec1/n0sec-blog/blob/main/data/blog/how-to-rob-a-mobile-carrier.mdx",
+    "author": "N0sec",
+    "date": "2023-05-20"
+  },
+  {
+    "title": "MVC Isn't MVC",
+    "url": "https://collin.blog/2023/06/19/mvc-isnt-mvc/",
+    "author": "Collin Donnell",
+    "date": "2025-02-19"
+  },
+  {
+    "title": "AGI Will Not Make Labor Worthless",
+    "url": "https://www.maximum-progress.com/p/agi-will-not-make-labor-worthless",
+    "author": "Maxwell Tabarrok",
+    "date": "2025-01-13"
+  },
+  {
+    "title": "Recent AI Model Progress Feels Mostly Like Bullshit",
+    "url": "https://www.lesswrong.com/posts/4mvphwx5pdsZLMmpY/recent-ai-model-progress-feels-mostly-like-bullshit",
+    "author": "LessWrong",
+    "date": "2025-03-25"
+  },
+  {
+    "title": "Deploy Headscale Exit Nodes on Fly",
+    "url": "https://vicyap-site.fly.dev/blog/posts/deploy-headscale-exit-nodes-on-fly",
+    "author": "Victor Yap",
+    "date": "2025-02-12"
+  },
+  {
+    "title": "Devenv - Fast, Declarative Developer Environments",
+    "url": "https://devenv.sh",
+    "author": "Devenv Team",
+    "date": "2025-05-02"
+  },
+  {
+    "title": "Medusa - The World's Most Flexible Commerce Platform",
+    "url": "https://github.com/medusajs/medusa",
+    "author": "MedusaJS Team",
+    "date": "2025-05-10"
+  }
+] 

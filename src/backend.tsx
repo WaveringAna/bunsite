@@ -175,6 +175,20 @@ serve({
             return new Response(rss, {
                 headers: { "Content-Type": "application/rss+xml" },
             });
+        },
+        "/api/bookmarks": async () => {
+            const file = Bun.file("./content/bookmarks.json");
+            const exists = await file.exists();
+            if (!exists) {
+                return new Response(JSON.stringify({ error: 'Bookmarks not found' }), {
+                    status: 404,
+                    headers: { "Content-Type": "application/json" },
+                });
+            }
+            const data = await file.text();
+            return new Response(data, {
+                headers: { "Content-Type": "application/json" },
+            });
         }
     },
     development: process.env.NODE_ENV !== "production",
