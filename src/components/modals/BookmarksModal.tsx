@@ -46,14 +46,6 @@ export const BookmarksModal: React.FC<{ bookmarks: Bookmark[]; isOpen?: boolean;
             <div id="bookmarks-modal" className="flex flex-col h-full">
                 <div className="flex items-center justify-between mb-3">
                     <h2 className="text-2xl font-semibold">Bookmarks</h2>
-                    <button 
-                        onClick={onClose} 
-                        className="p-1 hover:bg-gray-800 rounded-full transition-colors"
-                    >
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
                 </div>
                 <p className="text-gray-400 text-sm mb-6">Things I found interesting.</p>
                 <div className="flex flex-col gap-5 overflow-y-auto pr-1">
