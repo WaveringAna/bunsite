@@ -6,9 +6,15 @@
     "date": "2025-05-13"
   },
   {
-    "title": "Plant-It - A web app to help you grow your plants",
+    "title": "Self-Hostable Gardening Companion App",
     "url": "https://plant-it.org/?ref=selfh.st",
     "author": "Plant-It",
+    "date": "2025-05-18"
+  },
+  {
+    "title": "Rust Owl - Visualize ownership and lifetimes in Rust for debugging and optimization",
+    "url": "https://github.com/cordx56/rustowl",
+    "author": "cordx56",
     "date": "2025-05-18"
   },
   {
