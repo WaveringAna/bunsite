@@ -58,6 +58,9 @@ serve({
                 });
             }
         },
+        "/.well-known/atproto-did": new Response("did:plc:ttdrpj45ibqunmfhdsb4zdwq", {
+            headers: { "Content-Type": "text/plain" }
+        }),
         "/favicon.ico": new Response(await Bun.file("./src/public/avatar.jpg").bytes(), {
             headers: {
                 "Content-Type": "image/x-icon",
@@ -189,7 +192,7 @@ serve({
             return new Response(data, {
                 headers: { "Content-Type": "application/json" },
             });
-        }
+        },
     },
     development: process.env.NODE_ENV !== "production",
     // Use the fetch handler for dynamic routes (slugs)
