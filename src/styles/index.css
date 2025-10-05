@@ -14,9 +14,15 @@ body {
 }
 
 #root {
-    background-image: url('https://cdn.donmai.us/original/4b/af/__kazusa_blue_archive_drawn_by_exiadoon__4bafc344a1a82117fc1c138a69ed32d2.jpg');
+    background-image: url('https://cdn.donmai.us/original/29/0f/__kazusa_blue_archive_drawn_by_exiadoon__290f2ea9052204d3f6b24122f5193cf7.jpg');
     background-size: cover;
     position: relative;
+}
+
+@media (min-width: 768px) {
+    #root {
+        background-image: url('https://cdn.donmai.us/original/4b/af/__kazusa_blue_archive_drawn_by_exiadoon__4bafc344a1a82117fc1c138a69ed32d2.jpg');
+    }
 }
 
 #root::before {
