@@ -16,7 +16,7 @@ function groupByDate(items: Bookmark[]) {
     }, {} as Record<string, Bookmark[]>);
 }
 
-export const BookmarksModal: React.FC<{ bookmarks: Bookmark[]; isOpen?: boolean; onClose?: () => void }> = ({ bookmarks, isOpen = true, onClose }) => {
+export const BookmarksModal: React.FC<{ bookmarks: Bookmark[]; isOpen: boolean; onClose?: () => void }> = ({ bookmarks, isOpen, onClose }) => {
     React.useEffect(() => {
         if (!isOpen) return;
         const handleEscape = (e: KeyboardEvent) => {
@@ -34,7 +34,6 @@ export const BookmarksModal: React.FC<{ bookmarks: Bookmark[]; isOpen?: boolean;
         document.addEventListener('mousedown', handleClick);
         return () => document.removeEventListener('mousedown', handleClick);
     }, [isOpen, onClose]);
-    if (!isOpen) return null;
     const grouped = groupByDate(bookmarks);
     const sortedDates = Object.keys(grouped).sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
     return (

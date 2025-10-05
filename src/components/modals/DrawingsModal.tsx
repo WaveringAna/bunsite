@@ -10,11 +10,11 @@ export interface Drawing {
 
 interface DrawingsModalProps {
     drawings: Drawing[];
-    isOpen?: boolean;
+    isOpen: boolean;
     onClose?: () => void;
 }
 
-export const DrawingsModal: React.FC<DrawingsModalProps> = ({ drawings, isOpen = true, onClose }) => {
+export const DrawingsModal: React.FC<DrawingsModalProps> = ({ drawings, isOpen, onClose }) => {
     // Handle escape and click outside
     React.useEffect(() => {
         if (!isOpen) return;
@@ -33,7 +33,6 @@ export const DrawingsModal: React.FC<DrawingsModalProps> = ({ drawings, isOpen =
         document.addEventListener('mousedown', handleClick);
         return () => document.removeEventListener('mousedown', handleClick);
     }, [isOpen, onClose]);
-    if (!isOpen) return null;
     return (
         <Modal
             isOpen={isOpen}

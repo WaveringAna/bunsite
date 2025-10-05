@@ -61,12 +61,12 @@ serve({
         "/.well-known/atproto-did": new Response("did:plc:ttdrpj45ibqunmfhdsb4zdwq", {
             headers: { "Content-Type": "text/plain" }
         }),
-        "/favicon.ico": new Response(await Bun.file("./src/public/avatar.jpg").bytes(), {
+        "/favicon.ico": new Response(await Bun.file("./src/public/avatar.jpg").arrayBuffer(), {
             headers: {
                 "Content-Type": "image/x-icon",
             },
         }),
-        "/background.jpg": new Response(await Bun.file("./src/public/background.jpg").bytes(), {
+        "/background.jpg": new Response(await Bun.file("./src/public/background.jpg").arrayBuffer(), {
             headers: {
                 "Content-Type": "image/jpeg",
             },
@@ -125,7 +125,7 @@ serve({
                 return new Response("Not Found", { status: 404 });
             }
         },
-        "/resume": new Response(await Bun.file("./src/public/resume.pdf").bytes(), {
+        "/resume": new Response(await Bun.file("./src/public/resume.pdf").arrayBuffer(), {
             headers: {
                 "Content-Type": "application/pdf",
             },
