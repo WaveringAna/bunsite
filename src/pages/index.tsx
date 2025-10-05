@@ -86,8 +86,8 @@ export default function Home({ posts: initialPosts, drawings: initialDrawings, c
 			<div className="flex fixed bottom-12 left-0 right-0 justify-center z-20">
 				<div className="
 					flex flex-row gap-0 bg-white/10
-					rounded-3xl shadow-lg backdrop-blur-sm text-white overflow-hidden
-    				inset-shadow-sm inset-shadow-white/15 px-2 py-1
+					rounded-3xl backdrop-blur-[2px] text-white overflow-hidden
+    				px-2 py-1
 				">
 					<button 
 						onClick={openWritings}
