@@ -99,8 +99,8 @@ export const Modal: React.FC<ModalProps> = ({
       <div
         className={`
           rounded-none md:rounded-3xl shadow-lg relative w-full h-full md:max-w-3xl md:h-[80vh]
-          bg-black/20 backdrop-blur-sm text-white overflow-hidden
-          shadow-2xl/20 inset-shadow-sm inset-shadow-current/15 
+          bg-white/10 backdrop-blur-md text-white overflow-hidden
+          inset-shadow-sm inset-shadow-white/15
           transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)]
           ${animationClass}
         `}

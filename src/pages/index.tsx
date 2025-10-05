@@ -83,11 +83,11 @@ export default function Home({ posts: initialPosts, drawings: initialDrawings, c
 			<Profile avatarSrc="/public/avatar.jpg" username="waveringana" />
 			<SocialLinks />
 			{/* Navigation - positioned at bottom with margin */}
-			<div className="flex fixed bottom-24 left-0 right-0 justify-center z-20">
+			<div className="flex fixed bottom-12 left-0 right-0 justify-center z-20">
 				<div className="
-					flex flex-row gap-0
+					flex flex-row gap-0 bg-white/10
 					rounded-3xl shadow-lg backdrop-blur-sm text-white overflow-hidden
-    				shadow-2xl/20 inset-shadow-sm inset-shadow-current/15 px-2 py-1
+    				inset-shadow-sm inset-shadow-white/15 px-2 py-1
 				">
 					<button 
 						onClick={openWritings}
