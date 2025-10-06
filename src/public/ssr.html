@@ -4,8 +4,8 @@
 <head>
     <title>nekomimi.pet</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- Primary Meta Tags -->
     <meta name="title" content="nekomimi.pet">
     <meta name="description" content="waveringana's personal site for writings, drawings, and more">
@@ -24,26 +24,32 @@
 
     <link rel="stylesheet" href="/public/output.css" />
     <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-size: large;
+        }
+
         body {
             background-color: black;
-            margin: 0;
+            overflow-x: hidden;
         }
 
         #root {
-            background-image: url('/background.jpg');
+            background-image: url('https://cdn.donmai.us/original/29/0f/__kazusa_blue_archive_drawn_by_exiadoon__290f2ea9052204d3f6b24122f5193cf7.jpg');
             background-size: cover;
             position: relative;
         }
 
-        #root::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.65);
+        @media (min-width: 768px) {
+            #root {
+                background-image: url('https://cdn.donmai.us/original/4b/af/__kazusa_blue_archive_drawn_by_exiadoon__4bafc344a1a82117fc1c138a69ed32d2.jpg');
+            }
         }
     </style>
-    <script defer data-domain="nekomimi.pet"
-        src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
     <!--<link href="../styles/output.css" rel="stylesheet">-->
 </head>
 
