@@ -11,20 +11,20 @@ import { BgSource } from "../components/BgSource";
 //import { Resume } from "../components/Resume";
 
 export default function Home({ posts: initialPosts, drawings: initialDrawings, currentPost }: {
-    posts?: PostCard[];
-    drawings?: Drawing[];
-    currentPost?: string | null;
+	posts?: PostCard[];
+	drawings?: Drawing[];
+	currentPost?: string | null;
 }) {
-    // Check for SSR data in window if we're in the browser
-    const ssrData = typeof window !== 'undefined' ? (window as any).__INITIAL_DATA__ : null;
-    
-    // Initialize state with SSR data, props, or empty arrays
-    const [posts, setPosts] = useState<PostCard[]>(
-        initialPosts || (ssrData?.posts || [])
-    );
-    const [drawings, setDrawings] = useState<Drawing[]>(
-        initialDrawings || (ssrData?.drawings || [])
-    );
+	// Check for SSR data in window if we're in the browser
+	const ssrData = typeof window !== 'undefined' ? (window as any).__INITIAL_DATA__ : null;
+
+	// Initialize state with SSR data, props, or empty arrays
+	const [posts, setPosts] = useState<PostCard[]>(
+		initialPosts || (ssrData?.posts || [])
+	);
+	const [drawings, setDrawings] = useState<Drawing[]>(
+		initialDrawings || (ssrData?.drawings || [])
+	);
 	const [loading, setLoading] = useState(true);
 	const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
 	const [activeModal, setActiveModal] = useState<null | 'writings' | 'drawings' | 'bookmarks'>(null);
@@ -80,27 +80,84 @@ export default function Home({ posts: initialPosts, drawings: initialDrawings, c
 					style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}
 				/>
 			)*/}
+			<svg style={{ display: "none" }}>
+				<filter
+					id="glass-distortion"
+					x="0%"
+					y="0%"
+					width="100%"
+					height="100%"
+					filterUnits="objectBoundingBox"
+				>
+					<feTurbulence
+						type="fractalNoise"
+						baseFrequency="0.008 0.02"
+						numOctaves="1"
+						seed="5"
+						result="turbulence"
+					/>
+
+					<feComponentTransfer in="turbulence" result="mapped">
+						<feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+						<feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+						<feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+					</feComponentTransfer>
+
+					<feGaussianBlur in="turbulence" stdDeviation="1" result="softMap" />
+
+					<feSpecularLighting
+						in="softMap"
+						surfaceScale="5"
+						specularConstant="4"
+						specularExponent="100"
+						lighting-color="white"
+						result="specLight"
+					>
+						<fePointLight x="-200" y="-200" z="300" />
+					</feSpecularLighting>
+
+					<feComposite
+						in="specLight"
+						operator="arithmetic"
+						k1="0"
+						k2="1"
+						k3="1"
+						k4="0"
+						result="litImage"
+					/>
+
+					<feDisplacementMap
+						in="SourceGraphic"
+						in2="softMap"
+						scale="150"
+						xChannelSelector="R"
+						yChannelSelector="G"
+					/>
+				</filter>
+			</svg>
 			<Profile avatarSrc="/public/avatar.jpg" username="waveringana" />
 			<SocialLinks />
 			{/* Navigation - positioned at bottom with margin */}
 			<div className="flex fixed bottom-12 left-0 right-0 justify-center z-20">
 				<div className="
-					flex flex-row gap-0 bg-white/10
-					rounded-3xl backdrop-blur-[2px] text-white overflow-hidden
-    				px-2 py-1
-				">
-					<button 
+						relative flex flex-row gap-0 bg-white/1 shadow-lg
+						rounded-3xl text-white overflow-hidden
+						inset-shadow-sm inset-shadow-white/15 shadow-2xl/20
+			    		px-2 py-1
+					">
+					<div className="absolute inset-0 z-0 pointer-events-none backdrop-blur-sm" style={{ filter: 'url(#glass-distortion)' }}></div>
+					<button
 						onClick={openWritings}
-						className="px-4 py-2 flex flex-col items-center gap-1 text-white/80 hover:text-orange-300 transition-all duration-200 group"
+						className="relative z-10 px-4 py-2 flex flex-col items-center gap-1 text-white/80 hover:text-orange-300 transition-all duration-200 group"
 					>
 						<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-							<path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+							<path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
 						</svg>
 						<span className="text-xs font-normal">Writings</span>
 					</button>
-					<button 
+					<button
 						onClick={() => setActiveModal('drawings')}
-						className="px-4 py-2 flex flex-col items-center gap-1 text-white/80 hover:text-orange-300 transition-all duration-200 group"
+						className="relative z-10 px-4 py-2 flex flex-col items-center gap-1 text-white/80 hover:text-orange-300 transition-all duration-200 group"
 					>
 						<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 							<path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
@@ -108,9 +165,9 @@ export default function Home({ posts: initialPosts, drawings: initialDrawings, c
 						</svg>
 						<span className="text-xs font-normal">Art</span>
 					</button>
-					<button 
+					<button
 						onClick={() => setActiveModal('bookmarks')}
-						className="px-4 py-2 flex flex-col items-center gap-1 text-white/80 hover:text-orange-300 transition-all duration-200 group"
+						className="relative z-10 px-4 py-2 flex flex-col items-center gap-1 text-white/80 hover:text-orange-300 transition-all duration-200 group"
 					>
 						<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 							<path d="M5 3a2 2 0 00-2 2v12l7-4 7 4V5a2 2 0 00-2-2H5z" />

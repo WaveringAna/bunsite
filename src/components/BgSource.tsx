@@ -17,15 +17,18 @@ export const BgSource = () => {
     }, []);
 
     return (
-        <a
-            href={isMobile ? MobileSourceUrl : DesktopSourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fixed bottom-16 right-6 sm:bottom-10 sm:right-8 text-white/50 hover:text-white/70 
-                       text-sm transition-colors backdrop-blur-sm bg-black/20 
-                       px-3 py-1.5 rounded-md"
-        >
-            bg-source
-        </a>
+        <div className="fixed bottom-16 right-6 sm:bottom-10 sm:right-8">
+            <div className="relative inline-flex">
+                <div className="absolute inset-0 z-0 pointer-events-none backdrop-blur-sm" style={{ filter: 'url(#glass-distortion)' }}></div>
+                <a
+                    href={isMobile ? MobileSourceUrl : DesktopSourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10 text-white hover:text-white/70 text-sm transition-colors bg-white/1 px-3 py-1.5 rounded-md"
+                >
+                    bg-source
+                </a>
+            </div>
+        </div>
     );
 };

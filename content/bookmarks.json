@@ -1,5 +1,11 @@
 [
   {
+    "title": "Liquid Glass in the Browser: Refraction with CSS and SVG",
+    "url": "https://kube.io/blog/liquid-glass-css-svg/",
+    "author": "Chris Feijoo",
+    "date": "2025-10-03"
+  },
+  {
     "title": "komo.do - a web app to provide structure for managing your servers, builds, deployments, and automated procedures.",
     "url": "https://komo.do",
     "author": "komo.do",
@@ -44,7 +50,7 @@
   {
     "title": "Payload CMS - The Next.js Headless CMS",
     "url": "https://payloadcms.com",
-    "author": "Payload CMS Team",
+    "author": "Payload CMS",
     "date": "2024-01-15"
   },
   {
