@@ -1,6 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { HelmetProvider } from 'react-helmet-async';
 import { PostHogProvider} from 'posthog-js/react'
+import { AtProtoProvider } from "atproto-ui";
 import type { PostHogConfig } from "posthog-js";
 import Home from "./pages/index.tsx";
 
@@ -17,7 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     createRoot(rootElement).render(
         <PostHogProvider options={PostHogOptions} apiKey={PostHogPublicApiKey}>
             <HelmetProvider>
-                <Home />
+                <AtProtoProvider>
+                    <Home />
+                </AtProtoProvider>
             </HelmetProvider>
         </PostHogProvider>
     );

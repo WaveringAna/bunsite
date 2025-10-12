@@ -8,6 +8,7 @@ import { DrawingsModal, type Drawing } from "../components/modals/DrawingsModal"
 import { BookmarksModal, type Bookmark } from "../components/modals/BookmarksModal";
 import { type PostCard } from "../components/PostList";
 import { BgSource } from "../components/BgSource";
+import { BlueskyProfile } from "atproto-ui";
 //import { Resume } from "../components/Resume";
 
 export default function Home({ posts: initialPosts, drawings: initialDrawings, currentPost }: {
